@@ -5,7 +5,21 @@ if (has("termguicolors"))
  set termguicolors
 endif
 
-let g:ycm_clangd_binary_path = "/usr/bin/clangd"
+" YouCompleteMe configs
+"let g:ycm_clangd_binary_path = "/usr/bin/clangd"
+"let g:ycm_global_ycm_extra_conf = "~kristo/.config/nvim/.ycm_extra_conf.py"
+"set conceallevel=2
+"set concealcursor=vin
+"let g:clang_snippets=1
+"let g:clang_conceal_snippets=1
+"let g:clang_snippets_engine='clang_complete'
+" Complete options (disable preview scratch window, longest removed to aways show menu)
+" set completeopt=menu,menuone
+" Limit popup menu height
+set pumheight=20
+
+" COC
+source $HOME/.config/nvim/plug-config/coc.vim
 
 " imported from $HOME/.vimrc
 syntax on

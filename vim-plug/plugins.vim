@@ -19,11 +19,13 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " ALE (C/C++ Linter)
     Plug 'dense-analysis/ale'
     " YouCompleteMe
-    Plug 'ycm-core/YouCompleteMe'
+    "Plug 'ycm-core/YouCompleteMe'
+    " Stable version of coc
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
     " Dark+ theme
     Plug 'tomasiser/vim-code-dark'
     Plug 'dunstontc/vim-vscode-theme'
     " coc.nvim
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    "Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
