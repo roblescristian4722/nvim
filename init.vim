@@ -1,6 +1,12 @@
 " Defines the source file for pluggins
 source $HOME/.config/nvim/vim-plug/plugins.vim
 
+" Rainbow Pairs
+let g:rainbow_active = 1
+
+" Shows line numbers
+:set number
+
 if (has("termguicolors"))
  set termguicolors
 endif
@@ -27,7 +33,7 @@ filetype plugin indent on
 " Dark Plus 1
 "colorscheme codedark
 " Dark Plus 2
-colorscheme dark_plus
+colorscheme codedark
 set tabstop=4
 set shiftwidth=4
 set expandtab

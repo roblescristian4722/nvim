@@ -25,7 +25,11 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Dark+ theme
     Plug 'tomasiser/vim-code-dark'
     Plug 'dunstontc/vim-vscode-theme'
-    " coc.nvim
-    "Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    " C++ Syntax highlighting
+    "Plug 'bfrg/vim-cpp-modern'
+    " Rainbow Pairs
+    Plug 'oblitum/rainbow'
+    " Ctags
+    " Plug 'ludovicchabant/vim-gutentags'
 
 call plug#end()
