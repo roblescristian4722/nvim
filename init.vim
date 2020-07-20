@@ -4,6 +4,9 @@ source $HOME/.config/nvim/vim-plug/plugins.vim
 " Rainbow Pairs
 let g:rainbow_active = 1
 
+" Shows current line
+:set cursorline
+
 " Shows line numbers
 :set number
 
