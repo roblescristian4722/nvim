@@ -62,6 +62,11 @@ noremap <silent> <C-S>          :update<CR>
 vnoremap <silent> <C-S>         <C-C>:update<CR>
 inoremap <silent> <C-S>         <C-O>:update<CR>
 
+" remaping hjlk keys
+noremap j h
+noremap k j
+noremap l k
+noremap ñ l
 
 " open new split panes to right and below
 set splitright
