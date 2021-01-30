@@ -38,11 +38,5 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     
     " Rainbow Pairs
     Plug 'oblitum/rainbow'
-    
-    " Ctags
-    " Plug 'ludovicchabant/vim-gutentags'
-    
-    " Sexy Scroller
-    "Plug 'joeytwiddle/sexy_scroller.vim' 
 
     call plug#end()

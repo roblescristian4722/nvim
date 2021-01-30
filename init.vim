@@ -1,6 +1,10 @@
 " Defines the source file for pluggins
 source $HOME/.config/nvim/vim-plug/plugins.vim
 
+" limit syntax highlighting
+set synmaxcol=128
+syntax sync minlines=256
+
 " Rainbow Pairs
 let g:rainbow_active = 1
 
@@ -50,9 +54,9 @@ map <C-p> :tabn<CR>
 " Iterates over tabs
 map <C-l> :tabp<CR>
 " Splits window horizontally
-map <C-h> :sp<CR>
+map <C-v> :sp<CR>
 " Splits window vertically
-map <C-v> :vsp<CR>
+map <C-h> :vsp<CR>
 " Undo
 map <C-z> :undo<CR>
 " Redo
