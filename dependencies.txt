@@ -1,0 +1,6 @@
+pacman: go xorg base-devel curl wget fzf picom python2-pip python-pip
+        polkit-kde-agent lollypop rhythmbox nautilus gnome-terminal
+        gufw spectacle unrar unzip p7zip ntfs-3g
+pacman (desktop): r8168
+
+aur: bumblebee-status

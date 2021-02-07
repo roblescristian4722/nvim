@@ -61,7 +61,11 @@ map <C-h> :vsp<CR>
 map <C-z> :undo<CR>
 " Redo
 map <C-y> :redo<CR>
-" Ctrl + s to Save changes
+" resize ++
+map <C-,> :resize +2
+" resize --
+map <C-.> :resize -2
+"Ctrl + s to Save changes
 noremap <silent> <C-S>          :update<CR>
 vnoremap <silent> <C-S>         <C-C>:update<CR>
 inoremap <silent> <C-S>         <C-O>:update<CR>
@@ -81,7 +85,7 @@ tnoremap <Esc> <C-\><C-n>
 au BufEnter * if &buftype == 'terminal' | :startinsert | endif
 " open terminal on ctrl+n
 function! OpenTerminal()
-  split term://bash
+  split term://zsh
   resize 10
 endfunction
 nnoremap <c-t> :call OpenTerminal()<CR>
