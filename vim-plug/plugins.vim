@@ -39,4 +39,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Rainbow Pairs
     Plug 'oblitum/rainbow'
 
+    " Multiple cursors
+    Plug 'terryma/vim-multiple-cursors'
+
     call plug#end()
