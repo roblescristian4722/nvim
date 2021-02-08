@@ -38,5 +38,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     
     " Rainbow Pairs
     Plug 'oblitum/rainbow'
+    
+    " PHP syntax highlighting
+    Plug 'StanAngeloff/php.vim', {'for': 'php'}
 
     call plug#end()
