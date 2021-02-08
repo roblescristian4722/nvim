@@ -18,6 +18,17 @@ if (has("termguicolors"))
  set termguicolors
 endif
 
+" Multiple cursor
+let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_start_word_key      = '<C-i>'
+let g:multi_cursor_select_all_word_key = '<A-i>'
+let g:multi_cursor_start_key           = 'g<C-n>'
+let g:multi_cursor_select_all_key      = 'g<A-n>'
+let g:multi_cursor_next_key            = '<C-i>'
+let g:multi_cursor_prev_key            = '<C-k>'
+let g:multi_cursor_skip_key            = '<C-x>'
+let g:multi_cursor_quit_key            = '<Esc>'
+
 " YouCompleteMe configs
 "let g:ycm_clangd_binary_path = "/usr/bin/clangd"
 "let g:ycm_global_ycm_extra_conf = "~kristo/.config/nvim/.ycm_extra_conf.py"
@@ -61,7 +72,11 @@ map <C-h> :vsp<CR>
 map <C-z> :undo<CR>
 " Redo
 map <C-y> :redo<CR>
-" Ctrl + s to Save changes
+" resize ++
+map <C-,> :resize +2
+" resize --
+map <C-.> :resize -2
+"Ctrl + s to Save changes
 noremap <silent> <C-S>          :update<CR>
 vnoremap <silent> <C-S>         <C-C>:update<CR>
 inoremap <silent> <C-S>         <C-O>:update<CR>
@@ -81,7 +96,7 @@ tnoremap <Esc> <C-\><C-n>
 au BufEnter * if &buftype == 'terminal' | :startinsert | endif
 " open terminal on ctrl+n
 function! OpenTerminal()
-  split term://bash
+  split term://zsh
   resize 10
 endfunction
 nnoremap <c-t> :call OpenTerminal()<CR>

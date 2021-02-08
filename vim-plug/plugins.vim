@@ -42,4 +42,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " PHP syntax highlighting
     Plug 'StanAngeloff/php.vim', {'for': 'php'}
 
+    " Multiple cursors
+    Plug 'terryma/vim-multiple-cursors'
+
     call plug#end()
