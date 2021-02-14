@@ -38,6 +38,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     
     " Rainbow Pairs
     Plug 'oblitum/rainbow'
+    
+    " PHP syntax highlighting
+    Plug 'StanAngeloff/php.vim', {'for': 'php'}
 
     " Multiple cursors
     Plug 'terryma/vim-multiple-cursors'
