@@ -5,7 +5,7 @@ set nocompatible
 source $HOME/.config/nvim/vim-plug/plugins.vim
 
 " ruler at column 80
-set colorcolumn=100                                                                                
+set colorcolumn=80
 highlight ColorColumn ctermbg=lightcyan guibg=blue
 
 " statusline info (filepath \ line \ column)
