@@ -1,6 +1,13 @@
 " Defines the source file for pluggins
 source $HOME/.config/nvim/vim-plug/plugins.vim
 
+" ruler at column 80
+set colorcolumn=100                                                                                
+highlight ColorColumn ctermbg=lightcyan guibg=blue
+
+" statusline info (filepath \ line \ column)
+set statusline+=%F\ %l\:%c
+
 " limit syntax highlighting
 set synmaxcol=128
 syntax sync minlines=256
@@ -9,10 +16,10 @@ syntax sync minlines=256
 let g:rainbow_active = 1
 
 " Shows current line
-:set cursorline
+set cursorline
 
 " Shows line numbers
-:set number
+set number
 
 if (has("termguicolors"))
  set termguicolors
