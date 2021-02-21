@@ -1,3 +1,6 @@
+" Polyglot
+set nocompatible
+
 " Defines the source file for pluggins
 source $HOME/.config/nvim/vim-plug/plugins.vim
 
@@ -24,6 +27,38 @@ set number
 if (has("termguicolors"))
  set termguicolors
 endif
+
+" Move lines up and down - functions
+function! s:swap_lines(n1, n2)
+    let line1 = getline(a:n1)
+    let line2 = getline(a:n2)
+    call setline(a:n1, line2)
+    call setline(a:n2, line1)
+endfunction
+
+function! s:swap_up()
+    let n = line('.')
+    if n == 1
+        return
+    endif
+
+    call s:swap_lines(n, n - 1)
+    exec n - 1
+endfunction
+
+function! s:swap_down()
+    let n = line('.')
+    if n == line('$')
+        return
+    endif
+
+    call s:swap_lines(n, n + 1)
+    exec n + 1
+endfunction
+
+" Move lines up and down - commands
+noremap <silent> <C-s-up> :call <SID>swap_up()<CR>
+noremap <silent> <C-s-down> :call <SID>swap_down()<CR>
 
 " Multiple cursor
 let g:multi_cursor_use_default_mapping=0
@@ -80,9 +115,9 @@ map <C-z> :undo<CR>
 " Redo
 map <C-y> :redo<CR>
 " resize ++
-map <C-,> :resize +2
+map <C-0> :resize +2
 " resize --
-map <C-.> :resize -2
+map <C-9> :resize -2
 "Ctrl + s to Save changes
 noremap <silent> <C-S>          :update<CR>
 vnoremap <silent> <C-S>         <C-C>:update<CR>
