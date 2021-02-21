@@ -114,10 +114,12 @@ map <C-h> :vsp<CR>
 map <C-z> :undo<CR>
 " Redo
 map <C-y> :redo<CR>
-" resize ++
-map <C-0> :resize +2
-" resize --
-map <C-9> :resize -2
+" Maps Alt-[j,k,l, ñ] to resizing a window split
+nnoremap <silent> <c-Up> :resize +2<CR>
+nnoremap <silent> <c-Down> :resize -2<CR>
+nnoremap <silent> <c-Left> :vertical resize +2<CR>
+nnoremap <silent> <c-Right> :vertical resize -2<CR>
+
 "Ctrl + s to Save changes
 noremap <silent> <C-S>          :update<CR>
 vnoremap <silent> <C-S>         <C-C>:update<CR>
