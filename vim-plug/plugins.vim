@@ -8,6 +8,9 @@ endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
 
+    " HTML shorcuts
+    Plug 'mattn/emmet-vim'
+
     " Better Syntax Support
     Plug 'sheerun/vim-polyglot'
     

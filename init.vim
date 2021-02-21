@@ -129,6 +129,12 @@ noremap k j
 noremap l k
 noremap ñ l
 
+" remaping hjlk keys for uppercase
+noremap J h
+noremap K j
+noremap L k
+noremap Ñ l
+
 " open new split panes to right and below
 set splitright
 set splitbelow
