@@ -115,15 +115,10 @@ map <C-z> :undo<CR>
 " Redo
 map <C-y> :redo<CR>
 " Maps Alt-[j,k,l, ñ] to resizing a window split
-nnoremap <silent> <c-Up> :resize +2<CR>
-nnoremap <silent> <c-Down> :resize -2<CR>
-nnoremap <silent> <c-Left> :vertical resize +2<CR>
-nnoremap <silent> <c-Right> :vertical resize -2<CR>
-
-"Ctrl + s to Save changes
-noremap <silent> <C-S>          :update<CR>
-vnoremap <silent> <C-S>         <C-C>:update<CR>
-inoremap <silent> <C-S>         <C-O>:update<CR>
+noremap <silent> <A-Up> :resize +2<CR>
+noremap <silent> <A-Down> :resize -2<CR>
+noremap <silent> <A-Left> :vertical resize +2<CR>
+noremap <silent> <A-Right> :vertical resize -2<CR>
 
 " remaping hjlk keys
 noremap j h
@@ -136,6 +131,11 @@ noremap J h
 noremap K j
 noremap L k
 noremap Ñ l
+
+"Ctrl + s to Save changes
+noremap <silent> <C-S>          :update<CR>
+vnoremap <silent> <C-S>         <C-C>:update<CR>
+inoremap <silent> <C-S>         <C-O>:update<CR>
 
 " open new split panes to right and below
 set splitright
