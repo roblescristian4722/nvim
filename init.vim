@@ -2,7 +2,7 @@
 set nocompatible
 
 " Defines the source file for pluggins
-source $HOME/.config/nvim/vim-plug/plugins.vim
+source ~\AppData\Local\nvim\vim-plug\plugins.vim
 
 " ruler at column 80
 set colorcolumn=80
@@ -85,7 +85,7 @@ let g:multi_cursor_quit_key            = '<Esc>'
 set pumheight=20
 
 " COC
-source $HOME/.config/nvim/plug-config/coc.vim
+source ~\AppData\Local\nvim\plug-config\coc.vim
 
 " imported from $HOME/.vimrc
 syntax on
