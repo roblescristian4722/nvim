@@ -40,7 +40,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     "Plug 'bfrg/vim-cpp-modern'
     
     " Rainbow Pairs
-    Plug 'oblitum/rainbow'
+    " Plug 'oblitum/rainbow'
     
     " PHP syntax highlighting
     Plug 'StanAngeloff/php.vim', {'for': 'php'}
