@@ -7,6 +7,15 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
+        
+    " Support for Laravel
+    Plug 'tpope/vim-dispatch'             "| Optional
+    Plug 'tpope/vim-projectionist'        "|
+    Plug 'noahfrederick/vim-composer'     "|
+    Plug 'noahfrederick/vim-laravel'
+
+    " PHP highlighting
+    Plug 'StanAngeloff/php.vim'
 
     " HTML shorcuts
     Plug 'mattn/emmet-vim'
@@ -40,11 +49,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     "Plug 'bfrg/vim-cpp-modern'
     
     " Rainbow Pairs
-    Plug 'oblitum/rainbow'
+    "Plug 'oblitum/rainbow'
     
-    " PHP syntax highlighting
-    Plug 'StanAngeloff/php.vim', {'for': 'php'}
-
     " Multiple cursors
     Plug 'terryma/vim-multiple-cursors'
 

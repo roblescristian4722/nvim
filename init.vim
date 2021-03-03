@@ -16,7 +16,7 @@ set synmaxcol=128
 syntax sync minlines=256
 
 " Rainbow Pairs
-let g:rainbow_active = 1
+"let g:rainbow_active = 1
 
 " Shows current line
 set cursorline
@@ -59,6 +59,9 @@ endfunction
 " Move lines up and down - commands
 noremap <silent> <C-s-up> :call <SID>swap_up()<CR>
 noremap <silent> <C-s-down> :call <SID>swap_down()<CR>
+noremap <silent> <C-s-l> :call <SID>swap_up()<CR>
+noremap <silent> <C-s-k> :call <SID>swap_down()<CR>
+
 
 " Multiple cursor
 let g:multi_cursor_use_default_mapping=0
@@ -81,6 +84,7 @@ let g:multi_cursor_quit_key            = '<Esc>'
 "let g:clang_snippets_engine='clang_complete'
 " Complete options (disable preview scratch window, longest removed to aways show menu)
 " set completeopt=menu,menuone
+
 " Limit popup menu height
 set pumheight=20
 
@@ -104,8 +108,6 @@ map <C-o> :NERDTreeToggle<CR>
 map <C-n> :tabnew<CR>
 " Iterates over tabs
 map <C-p> :tabn<CR>
-" Iterates over tabs
-map <C-l> :tabp<CR>
 " Splits window horizontally
 map <C-v> :sp<CR>
 " Splits window vertically
@@ -115,8 +117,8 @@ map <C-z> :undo<CR>
 " Redo
 map <C-y> :redo<CR>
 " Maps Alt-[j,k,l, ñ] to resizing a window split
-noremap <silent> <A-Up> :resize +2<CR>
-noremap <silent> <A-Down> :resize -2<CR>
+noremap <silent> <A-Up> :resize -2<CR>
+noremap <silent> <A-Down> :resize +2<CR>
 noremap <silent> <A-Left> :vertical resize +2<CR>
 noremap <silent> <A-Right> :vertical resize -2<CR>
 
