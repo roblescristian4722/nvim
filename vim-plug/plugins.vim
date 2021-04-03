@@ -7,7 +7,12 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
-        
+    " C++ syntax
+    "Plug 'arakashic/chromatica.nvim'
+
+    " html auto close tag
+    Plug 'alvan/vim-closetag'
+
     " Support for Laravel
     Plug 'tpope/vim-dispatch'             "| Optional
     Plug 'tpope/vim-projectionist'        "|
