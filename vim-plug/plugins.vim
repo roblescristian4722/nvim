@@ -10,6 +10,12 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " C++ syntax
     "Plug 'arakashic/chromatica.nvim'
 
+    " Comments usgin "gc" command
+    Plug 'tpope/vim-commentary'
+
+    " Status bar
+    Plug 'vim-airline/vim-airline' 
+
     " html auto close tag
     Plug 'alvan/vim-closetag'
 
