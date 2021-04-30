@@ -1,5 +1,13 @@
-" Polyglot
-set nocompatible
+" imported from $HOME/.vimrc
+syntax on
+filetype plugin indent on
+
+" C++ syntax highlighting
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_posix_standard = 1
+let g:cpp_experimental_template_highlight = 1
+let g:cpp_concepts_highlight = 1
 
 " Defines the source file for pluggins
 source $HOME/.config/nvim/vim-plug/plugins.vim
@@ -80,9 +88,6 @@ set pumheight=20
 " COC
 source $HOME/.config/nvim/plug-config/coc.vim
 
-" imported from $HOME/.vimrc
-syntax on
-filetype plugin indent on
 " vscode theme
 colorscheme codedark
 set tabstop=4

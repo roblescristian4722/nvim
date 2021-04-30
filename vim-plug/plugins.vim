@@ -8,7 +8,8 @@ endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
     " C++ syntax
-    "Plug 'arakashic/chromatica.nvim'
+    Plug 'octol/vim-cpp-enhanced-highlight'
+    "Plug 'bfrg/vim-cpp-modern' 
 
     " html auto close tag
     Plug 'alvan/vim-closetag'
@@ -49,12 +50,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Dark+ theme
     Plug 'tomasiser/vim-code-dark'
     Plug 'dunstontc/vim-vscode-theme'
-    
-    " C++ Syntax highlighting
-    "Plug 'bfrg/vim-cpp-modern'
-    
-    " Rainbow Pairs
-    "Plug 'oblitum/rainbow'
     
     " Multiple cursors
     Plug 'terryma/vim-multiple-cursors'

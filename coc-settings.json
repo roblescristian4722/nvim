@@ -1,7 +1,11 @@
 {
-        "clangd.arguments": [
-    		"--compile-commands-dir=./build",
-		    "--background-index",
-	    	"--completion-style=detailed"
-    ]
+    "clangd.arguments": [
+        "--compile-commands-dir=./build",
+        "--background-index",
+        "--completion-style=detailed"
+    ],
+    "clangd.fallbackFlags": [
+        "-Wall"
+    ],
+    "clangd.semanticHighlighting": true
 }
