@@ -1,7 +1,16 @@
 " imported from $HOME/.vimrc
 syntax on
 filetype plugin indent on
-
+set mouse=a
+set tabstop=4
+set shiftwidth=4
+set expandtab
+" Shows line numbers
+set number
+"set encoding
+set encoding=UTF-8
+" Polyglot
+set nocompatible
 " C++ syntax highlighting
 let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1
@@ -16,25 +25,22 @@ source $HOME/.config/nvim/vim-plug/plugins.vim
 set colorcolumn=80
 highlight ColorColumn ctermbg=lightcyan guibg=blue
 
-" statusline info (filepath \ line \ column)
-set statusline+=%F\ %l\:%c
-
 " limit syntax highlighting
 set synmaxcol=128
 syntax sync minlines=256
 
-" chromatica
-"let g:chromatica#enable_at_startup=1
-
 " Shows current line
 set cursorline
-
-" Shows line numbers
-set number
 
 if (has("termguicolors"))
  set termguicolors
 endif
+
+" airline symbols
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+  endif
 
 " Move lines up and down - functions
 function! s:swap_lines(n1, n2)
@@ -89,11 +95,9 @@ set pumheight=20
 source $HOME/.config/nvim/plug-config/coc.vim
 
 " vscode theme
-colorscheme codedark
-set tabstop=4
-set shiftwidth=4
-set expandtab
+:colorscheme codedark
 set background=dark
+
 " Opens NERDTree
 map <C-o> :NERDTreeToggle<CR>
 " Creates new tab
