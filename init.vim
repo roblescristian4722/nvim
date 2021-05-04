@@ -33,14 +33,14 @@ syntax sync minlines=256
 set cursorline
 
 if (has("termguicolors"))
- set termguicolors
+    set termguicolors
 endif
 
 " airline symbols
 let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
-  endif
+endif
 
 " Move lines up and down - functions
 function! s:swap_lines(n1, n2)
@@ -90,9 +90,6 @@ let g:multi_cursor_quit_key            = '<Esc>'
 
 " Limit popup menu height
 set pumheight=20
-
-" COC
-source $HOME/.config/nvim/plug-config/coc.vim
 
 " vscode theme
 :colorscheme codedark

@@ -21,10 +21,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'alvan/vim-closetag'
 
     " Support for Laravel
-    Plug 'tpope/vim-dispatch'             "| Optional
-    Plug 'tpope/vim-projectionist'        "|
-    Plug 'noahfrederick/vim-composer'     "|
-    Plug 'noahfrederick/vim-laravel'
+    "Plug 'tpope/vim-dispatch'             "| Optional
+    "Plug 'tpope/vim-projectionist'        "|
+    "Plug 'noahfrederick/vim-composer'     "|
+    "Plug 'noahfrederick/vim-laravel'
 
     " PHP highlighting
     Plug 'StanAngeloff/php.vim'
