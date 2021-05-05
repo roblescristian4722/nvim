@@ -5,6 +5,8 @@ set mouse=a
 set tabstop=4
 set shiftwidth=4
 set expandtab
+" enables getting to the end of line on normal mode
+set ve+=onemore
 " Shows line numbers
 set number
 "set encoding
