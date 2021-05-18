@@ -11,6 +11,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'octol/vim-cpp-enhanced-highlight'
     "Plug 'bfrg/vim-cpp-modern' 
 
+    " latex
+    Plug 'xuhdev/vim-latex-live-preview'
+
     " Comments usgin "gc" command
     Plug 'tpope/vim-commentary'
 

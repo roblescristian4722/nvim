@@ -20,8 +20,40 @@ let g:cpp_posix_standard = 1
 let g:cpp_experimental_template_highlight = 1
 let g:cpp_concepts_highlight = 1
 
+" Spanish spell check
+set spelllang=es
+" Toggle spellchecking
+function! ToggleSpellCheck()
+  set spell!
+  if &spell
+    echo "Spellcheck ON"
+  else
+    echo "Spellcheck OFF"
+  endif
+endfunction
+
+nnoremap <silent> <C-u> :call ToggleSpellCheck()<CR>
+
 " Defines the source file for pluggins
 source $HOME/.config/nvim/vim-plug/plugins.vim
+
+" Latex preview
+noremap <silent> <A-o> :LLPStartPreview<CR>
+
+" (COC) update time
+set updatetime=2000
+
+" (COC) Use tab for trigger completion with characters ahead and navigate.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
 " ruler at column 80
 set colorcolumn=80
@@ -77,7 +109,7 @@ endfunction
 noremap <silent> <C-s-up> :call <SID>swap_up()<CR>
 noremap <silent> <C-s-down> :call <SID>swap_down()<CR>
 noremap <silent> <C-s-l> :call <SID>swap_up()<CR>
-noremap <silent> <C-s-k> :call <SID>swap_dow
+noremap <silent> <C-s-k> :call <SID>swap_down()<CR>
 
 " Multiple cursor
 let g:multi_cursor_use_default_mapping=0
