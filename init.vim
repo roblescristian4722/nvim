@@ -1,3 +1,5 @@
+let g:polyglot_disabled = ['.php', 'python']
+
 " imported from $HOME/.vimrc
 syntax on
 filetype plugin indent on
@@ -14,13 +16,15 @@ set encoding=UTF-8
 " Polyglot
 set nocompatible
 " C++ syntax highlighting
-let g:cpp_class_scope_highlight = 1
-let g:cpp_member_variable_highlight = 1
-let g:cpp_posix_standard = 1
-let g:cpp_experimental_template_highlight = 1
 let g:cpp_concepts_highlight = 1
+let g:cpp_attributes_highlight = 1
+let g:cpp_member_highlight = 1
 
-" Spanish spell check
+" Python syntax
+let g:python_highlight_all = 1
+let g:python_highlight_builtins = 1
+
+"Spanish spell check
 set spelllang=es
 " Toggle spellchecking
 function! ToggleSpellCheck()

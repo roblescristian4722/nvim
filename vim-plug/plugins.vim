@@ -8,8 +8,11 @@ endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
     " C++ syntax
-    Plug 'octol/vim-cpp-enhanced-highlight'
-    "Plug 'bfrg/vim-cpp-modern' 
+    " Plug 'octol/vim-cpp-enhanced-highlight'
+    Plug 'bfrg/vim-cpp-modern'
+
+    " python syntax
+    Plug 'vim-python/python-syntax'
 
     " latex
     Plug 'xuhdev/vim-latex-live-preview'
@@ -36,7 +39,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'mattn/emmet-vim'
 
     " Better Syntax Support
-    Plug 'sheerun/vim-polyglot'
+    " Plug 'sheerun/vim-polyglot'
     
     " File Explorer
     Plug 'scrooloose/NERDTree'
