@@ -22,10 +22,10 @@ let g:cpp_attributes_highlight = 1
 let g:cpp_member_highlight = 1
 
 " Smart way to move between panes
-" map <C-s-up> <C-w><up>
-" map <C-s-down> <C-w><down>
-" map <C-s-left> <C-w><left>
-" map <C-s-right> <C-w><right>
+map <C-s-up> <C-w><up>
+map <C-s-down> <C-w><down>
+map <C-s-left> <C-w><left>
+map <C-s-right> <C-w><right>
 
 " Python syntax
 let g:python_highlight_all = 1
