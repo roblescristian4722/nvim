@@ -15,7 +15,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'vim-python/python-syntax'
 
     " latex
-    Plug 'xuhdev/vim-latex-live-preview'
+    " Plug 'xuhdev/vim-latex-live-preview'
 
     " Comments usgin "gc" command
     Plug 'tpope/vim-commentary'

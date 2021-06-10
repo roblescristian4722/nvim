@@ -1,7 +1,8 @@
-let g:polyglot_disabled = ['.php', 'python']
+let g:polyglot_disabled = ['c', 'c++', 'c/c++', 'php', 'python']
 
 " imported from $HOME/.vimrc
 syntax on
+set clipboard=unnamedplus
 filetype plugin indent on
 set mouse=a
 set tabstop=4
@@ -16,9 +17,21 @@ set encoding=UTF-8
 " Polyglot
 set nocompatible
 " C++ syntax highlighting
-let g:cpp_concepts_highlight = 1
+"let g:cpp_concepts_highlight = 1
 let g:cpp_attributes_highlight = 1
 let g:cpp_member_highlight = 1
+
+" Smart way to move between panes
+map <C-s-up> <C-w><up>
+map <C-s-down> <C-w><down>
+map <C-s-left> <C-w><left>
+map <C-s-right> <C-w><right>
+
+" Turn off caps lock on normal mode
+au InsertLeave * silent !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+au InsertEnter * silent !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
+au VimEnter * silent !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+au VimLeave * silent !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
 
 " Python syntax
 let g:python_highlight_all = 1
@@ -42,7 +55,7 @@ nnoremap <silent> <C-u> :call ToggleSpellCheck()<CR>
 source $HOME/.config/nvim/vim-plug/plugins.vim
 
 " Latex preview
-noremap <silent> <A-o> :LLPStartPreview<CR>
+" noremap <silent> <A-o> :LLPStartPreview<CR>
 
 " (COC) update time
 set updatetime=2000
@@ -110,10 +123,10 @@ endfunction
 " End move lines functions
 
 " Move lines up and down - commands
-noremap <silent> <C-s-up> :call <SID>swap_up()<CR>
-noremap <silent> <C-s-down> :call <SID>swap_down()<CR>
-noremap <silent> <C-s-l> :call <SID>swap_up()<CR>
-noremap <silent> <C-s-k> :call <SID>swap_down()<CR>
+"noremap <silent> <C-s-up> :call <SID>swap_up()<CR>
+"noremap <silent> <C-s-down> :call <SID>swap_down()<CR>
+noremap <silent> <C-l> :call <SID>swap_up()<CR>
+noremap <silent> <C-k> :call <SID>swap_down()<CR>
 
 " Multiple cursor
 let g:multi_cursor_use_default_mapping=0
@@ -122,7 +135,7 @@ let g:multi_cursor_select_all_word_key = '<A-i>'
 let g:multi_cursor_start_key           = 'g<C-n>'
 let g:multi_cursor_select_all_key      = 'g<A-n>'
 let g:multi_cursor_next_key            = '<C-i>'
-let g:multi_cursor_prev_key            = '<C-k>'
+let g:multi_cursor_prev_key            = '<C-z>'
 let g:multi_cursor_skip_key            = '<C-x>'
 let g:multi_cursor_quit_key            = '<Esc>'
 
@@ -147,6 +160,7 @@ map <C-h> :vsp<CR>
 map <C-z> :undo<CR>
 " Redo
 map <C-y> :redo<CR>
+
 " Maps Alt-[j,k,l, ñ] to resizing a window split
 noremap <silent> <A-Up> :resize -2<CR>
 noremap <silent> <A-Down> :resize +2<CR>
