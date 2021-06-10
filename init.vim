@@ -22,16 +22,10 @@ let g:cpp_attributes_highlight = 1
 let g:cpp_member_highlight = 1
 
 " Smart way to move between panes
-map <C-s-up> <C-w><up>
-map <C-s-down> <C-w><down>
-map <C-s-left> <C-w><left>
-map <C-s-right> <C-w><right>
-
-" Turn off caps lock on normal mode
-au InsertLeave * silent !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
-au InsertEnter * silent !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
-au VimEnter * silent !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
-au VimLeave * silent !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
+" map <C-s-up> <C-w><up>
+" map <C-s-down> <C-w><down>
+" map <C-s-left> <C-w><left>
+" map <C-s-right> <C-w><right>
 
 " Python syntax
 let g:python_highlight_all = 1
