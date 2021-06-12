@@ -178,6 +178,17 @@ noremap <silent> <C-S>          :update<CR>
 vnoremap <silent> <C-S>         <C-C>:update<CR>
 inoremap <silent> <C-S>         <C-O>:update<CR>
 
+" disable vim-airline extensions
+let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#po#enabled = 0
+let g:airline#extensions#term#enabled = 0
+let g:airline#extensions#keymap#enabled = 0
+let g:airline#extensions#hunks#enabled = 0
+let g:airline#extensions#quickfix#enabled = 0
+let g:airline#extensions#netrw#enabled = 0
+let g:airline#extensions#coc#enabled = 1
+
 " open new split panes to right and below
 set splitright
 set splitbelow
