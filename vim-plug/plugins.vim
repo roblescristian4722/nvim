@@ -9,7 +9,8 @@ endif
 call plug#begin('~/.config/nvim/autoload/plugged')
     " C++ syntax
     " Plug 'octol/vim-cpp-enhanced-highlight'
-    Plug 'bfrg/vim-cpp-modern'
+    " Plug 'bfrg/vim-cpp-modern'
+    Plug 'jackguo380/vim-lsp-cxx-highlight'
 
     " Moving split windows
     Plug 'wesQ3/vim-windowswap'
