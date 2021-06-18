@@ -1,7 +1,5 @@
 let g:polyglot_disabled = ['c', 'c++', 'c/c++', 'php', 'python']
-" let g:lsp_cxx_hl_use_text_props = 1
-" Set member variables to green
-hi default LspCxxHlGroupMemberVariable ctermfg=Green guifg=Green
+let g:lsp_cxx_hl_use_text_props = 1
 
 " imported from $HOME/.vimrc
 syntax on

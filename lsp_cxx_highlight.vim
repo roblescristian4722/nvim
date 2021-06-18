@@ -28,7 +28,7 @@ hi default link LspCxxHlSkippedRegionBeginEnd Normal
 "
 " Custom Highlight Groups
 hi default LspCxxHlGroupEnumConstant ctermfg=Magenta guifg=#AD7FA8 cterm=none gui=none
-hi default LspCxxHlGroupNamespace ctermfg=White guifg=#1CC7A5 cterm=none gui=none
+hi default LspCxxHlGroupNamespace ctermfg=White guifg=#61C1AE cterm=none gui=none
 hi default LspCxxHlGroupMemberVariable ctermfg=White guifg=#90C8EF
 hi default LspCxxHlSymVariable ctermfg=White guifg=#90C8EF
 hi default LspCxxHlSymField ctermfg=White guifg=#90C8EF
