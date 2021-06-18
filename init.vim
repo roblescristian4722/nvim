@@ -27,6 +27,12 @@ map <C-s-down> <C-w><down>
 map <C-s-left> <C-w><left>
 map <C-s-right> <C-w><right>
 
+" Change split windows
+let g:windowswap_map_keys = 0 "prevent default bindings
+nnoremap <silent> wy :call WindowSwap#MarkWindowSwap()<CR>
+nnoremap <silent> wp :call WindowSwap#DoWindowSwap()<CR>
+nnoremap <silent> ww :call WindowSwap#EasyWindowSwap()<CR>
+
 " Python syntax
 let g:python_highlight_all = 1
 let g:python_highlight_builtins = 1

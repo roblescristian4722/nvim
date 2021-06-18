@@ -11,6 +11,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Plug 'octol/vim-cpp-enhanced-highlight'
     Plug 'bfrg/vim-cpp-modern'
 
+    " Moving split windows
+    Plug 'wesQ3/vim-windowswap'
+
     " JS syntax
     Plug 'pangloss/vim-javascript'
     " JSX syntax
