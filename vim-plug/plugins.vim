@@ -11,6 +11,16 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Plug 'octol/vim-cpp-enhanced-highlight'
     Plug 'bfrg/vim-cpp-modern'
 
+    " JS syntax
+    Plug 'pangloss/vim-javascript'
+    " JSX syntax
+    Plug 'junegunn/vim-plug'
+
+    " Plug 'moll/vim-node'
+
+    " Kotlin syntax
+    Plug 'udalov/kotlin-vim'
+
     " python syntax
     Plug 'vim-python/python-syntax'
 
