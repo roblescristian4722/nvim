@@ -22,6 +22,8 @@ set nocompatible
 let g:cpp_attributes_highlight = 1
 let g:cpp_member_highlight = 1
 
+autocmd FileType c,cpp,cs,java,js,jsx          setlocal commentstring=//\ %s
+
 " Smart way to move between panes
 map <C-s-up> <C-w><up>
 map <C-s-down> <C-w><down>
