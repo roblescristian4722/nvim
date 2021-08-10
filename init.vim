@@ -55,7 +55,7 @@ endfunction
 nnoremap <silent> <C-u> :call ToggleSpellCheck()<CR>
 
 " Defines the source file for pluggins
-source $HOME/.config/nvim/vim-plug/plugins.vim
+source /Users/krist/AppData/Local/nvim/vim-plug/plugins.vim
 
 " Latex preview
 " noremap <silent> <A-o> :LLPStartPreview<CR>
@@ -207,7 +207,7 @@ tnoremap <Esc> <C-\><C-n>
 au BufEnter * if &buftype == 'terminal' | :startinsert | endif
 " open terminal on ctrl+n
 function! OpenTerminal()
-  split term://zsh
+  split term://powershell
   resize 10
 endfunction
 nnoremap <c-t> :call OpenTerminal()<CR>
