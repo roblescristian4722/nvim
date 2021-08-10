@@ -60,6 +60,13 @@ source /Users/krist/AppData/Local/nvim/vim-plug/plugins.vim
 " Latex preview
 " noremap <silent> <A-o> :LLPStartPreview<CR>
 
+" Coc extensions
+let g:coc_global_extensions = ['coc-json', 'coc-pairs', 'coc-clangd', 'coc-kotlin',
+                              \ 'coc-cmake', 'coc-angular', 'coc-css', 'coc-html',
+                              \ 'coc-eslint', 'coc-git', 'coc-go', 'coc-highlight',
+                              \ 'coc-jedi', 'coc-phpactor', 'coc-prettier', 'coc-rome',
+                              \ 'coc-tsserver', 'coc-java']
+
 " (COC) update time
 set updatetime=2000
 
@@ -126,8 +133,6 @@ endfunction
 " End move lines functions
 
 " Move lines up and down - commands
-"noremap <silent> <C-s-up> :call <SID>swap_up()<CR>
-"noremap <silent> <C-s-down> :call <SID>swap_down()<CR>
 noremap <silent> <C-l> :call <SID>swap_up()<CR>
 noremap <silent> <C-k> :call <SID>swap_down()<CR>
 

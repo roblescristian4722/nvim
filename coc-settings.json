@@ -14,6 +14,7 @@
             "filetypes": ["kotlin"]
         }
     },
-    "tsserver.npm": "/usr/bin/npm"
+    "tsserver.npm": "/usr/bin/npm",
+    "clangd.path": "C:\\Users\\krist\\AppData\\Local\\coc\\extensions\\coc-clangd-data\\install\\12.0.1\\clangd_12.0.1\\bin\\clangd.exe"
 
 }
