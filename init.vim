@@ -1,31 +1,99 @@
+let g:polyglot_disabled = ['c', 'c++', 'c/c++', 'php', 'python']
+let g:lsp_cxx_hl_use_text_props = 1
+
+" imported from $HOME/.vimrc
+syntax on
+set clipboard=unnamedplus
+filetype plugin indent on
+set mouse=a
+set tabstop=4
+set shiftwidth=4
+set expandtab
+" enables getting to the end of line on normal mode
+set ve+=onemore
+" Shows line numbers
+set number
+"set encoding
+set encoding=UTF-8
 " Polyglot
 set nocompatible
+" C++ syntax highlighting
+"let g:cpp_concepts_highlight = 1
+let g:cpp_attributes_highlight = 1
+let g:cpp_member_highlight = 1
+
+autocmd FileType c,cpp,cs,java,js,jsx          setlocal commentstring=//\ %s
+
+" Smart way to move between panes
+map <C-s-up> <C-w><up>
+map <C-s-down> <C-w><down>
+map <C-s-left> <C-w><left>
+map <C-s-right> <C-w><right>
+
+" Change split windows
+let g:windowswap_map_keys = 0 "prevent default bindings
+nnoremap <silent> wy :call WindowSwap#MarkWindowSwap()<CR>
+nnoremap <silent> wp :call WindowSwap#DoWindowSwap()<CR>
+nnoremap <silent> ww :call WindowSwap#EasyWindowSwap()<CR>
+
+" Python syntax
+let g:python_highlight_all = 1
+let g:python_highlight_builtins = 1
+
+"Spanish spell check
+set spelllang=es
+" Toggle spellchecking
+function! ToggleSpellCheck()
+  set spell!
+  if &spell
+    echo "Spellcheck ON"
+  else
+    echo "Spellcheck OFF"
+  endif
+endfunction
+
+nnoremap <silent> <C-u> :call ToggleSpellCheck()<CR>
 
 " Defines the source file for pluggins
-source ~\AppData\Local\nvim\vim-plug\plugins.vim
+source /Users/krist/AppData/Local/nvim/vim-plug/plugins.vim
+
+" Latex preview
+" noremap <silent> <A-o> :LLPStartPreview<CR>
+
+" (COC) update time
+set updatetime=2000
+
+" (COC) Use tab for trigger completion with characters ahead and navigate.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
 " ruler at column 80
 set colorcolumn=80
 highlight ColorColumn ctermbg=lightcyan guibg=blue
 
-" statusline info (filepath \ line \ column)
-set statusline+=%F\ %l\:%c
-
 " limit syntax highlighting
 set synmaxcol=128
 syntax sync minlines=256
 
-" Rainbow Pairs
-let g:rainbow_active = 1
-
 " Shows current line
 set cursorline
 
-" Shows line numbers
-set number
-
 if (has("termguicolors"))
- set termguicolors
+    set termguicolors
+endif
+
+" airline symbols
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
 endif
 
 " Move lines up and down - functions
@@ -55,10 +123,13 @@ function! s:swap_down()
     call s:swap_lines(n, n + 1)
     exec n + 1
 endfunction
+" End move lines functions
 
 " Move lines up and down - commands
-noremap <silent> <C-s-up> :call <SID>swap_up()<CR>
-noremap <silent> <C-s-down> :call <SID>swap_down()<CR>
+"noremap <silent> <C-s-up> :call <SID>swap_up()<CR>
+"noremap <silent> <C-s-down> :call <SID>swap_down()<CR>
+noremap <silent> <C-l> :call <SID>swap_up()<CR>
+noremap <silent> <C-k> :call <SID>swap_down()<CR>
 
 " Multiple cursor
 let g:multi_cursor_use_default_mapping=0
@@ -67,45 +138,23 @@ let g:multi_cursor_select_all_word_key = '<A-i>'
 let g:multi_cursor_start_key           = 'g<C-n>'
 let g:multi_cursor_select_all_key      = 'g<A-n>'
 let g:multi_cursor_next_key            = '<C-i>'
-let g:multi_cursor_prev_key            = '<C-k>'
+let g:multi_cursor_prev_key            = '<C-z>'
 let g:multi_cursor_skip_key            = '<C-x>'
 let g:multi_cursor_quit_key            = '<Esc>'
 
-" YouCompleteMe configs
-"let g:ycm_clangd_binary_path = "/usr/bin/clangd"
-"let g:ycm_global_ycm_extra_conf = "~kristo/.config/nvim/.ycm_extra_conf.py"
-"set conceallevel=2
-"set concealcursor=vin
-"let g:clang_snippets=1
-"let g:clang_conceal_snippets=1
-"let g:clang_snippets_engine='clang_complete'
-" Complete options (disable preview scratch window, longest removed to aways show menu)
-" set completeopt=menu,menuone
 " Limit popup menu height
 set pumheight=20
 
-" COC
-source ~\AppData\Local\nvim\plug-config\coc.vim
-
-" imported from $HOME/.vimrc
-syntax on
-filetype plugin indent on
-" Dark Plus 1
-"colorscheme codedark
-" Dark Plus 2
+" vscode theme
 colorscheme codedark
-set tabstop=4
-set shiftwidth=4
-set expandtab
 set background=dark
+
 " Opens NERDTree
 map <C-o> :NERDTreeToggle<CR>
 " Creates new tab
 map <C-n> :tabnew<CR>
 " Iterates over tabs
 map <C-p> :tabn<CR>
-" Iterates over tabs
-map <C-l> :tabp<CR>
 " Splits window horizontally
 map <C-v> :sp<CR>
 " Splits window vertically
@@ -114,9 +163,10 @@ map <C-h> :vsp<CR>
 map <C-z> :undo<CR>
 " Redo
 map <C-y> :redo<CR>
+
 " Maps Alt-[j,k,l, ñ] to resizing a window split
-noremap <silent> <A-Up> :resize +2<CR>
-noremap <silent> <A-Down> :resize -2<CR>
+noremap <silent> <A-Up> :resize -2<CR>
+noremap <silent> <A-Down> :resize +2<CR>
 noremap <silent> <A-Left> :vertical resize +2<CR>
 noremap <silent> <A-Right> :vertical resize -2<CR>
 
@@ -137,6 +187,17 @@ noremap <silent> <C-S>          :update<CR>
 vnoremap <silent> <C-S>         <C-C>:update<CR>
 inoremap <silent> <C-S>         <C-O>:update<CR>
 
+" disable vim-airline extensions
+let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#po#enabled = 0
+let g:airline#extensions#term#enabled = 0
+let g:airline#extensions#keymap#enabled = 0
+let g:airline#extensions#hunks#enabled = 0
+let g:airline#extensions#quickfix#enabled = 0
+let g:airline#extensions#netrw#enabled = 0
+let g:airline#extensions#coc#enabled = 1
+
 " open new split panes to right and below
 set splitright
 set splitbelow
@@ -146,7 +207,7 @@ tnoremap <Esc> <C-\><C-n>
 au BufEnter * if &buftype == 'terminal' | :startinsert | endif
 " open terminal on ctrl+n
 function! OpenTerminal()
-  split term://cmd
+  split term://powershell
   resize 10
 endfunction
 nnoremap <c-t> :call OpenTerminal()<CR>
