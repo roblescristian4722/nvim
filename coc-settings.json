@@ -8,12 +8,7 @@
         "-Wall"
     ],
     "clangd.semanticHighlighting": true,
-    "languageserver": {
-        "kotlin": {
-            "command": "kotlin-language-server",
-            "filetypes": ["kotlin"]
-        }
-    },
-    "tsserver.npm": "/usr/bin/npm"
-
+    "rome.enable": true,
+    "jedi.enable": true,
+    "jedi.trace.server": "verbose"
 }
