@@ -15,6 +15,7 @@ set ve+=onemore
 set number
 "set encoding
 set encoding=UTF-8
+
 " Polyglot
 set nocompatible
 " C++ syntax highlighting
@@ -22,7 +23,38 @@ set nocompatible
 let g:cpp_attributes_highlight = 1
 let g:cpp_member_highlight = 1
 
-autocmd FileType c,cpp,cs,java,js,jsx          setlocal commentstring=//\ %s
+" ruler at column 80
+set colorcolumn=80
+highlight ColorColumn ctermbg=lightcyan guibg=blue
+
+" limit syntax highlighting
+set synmaxcol=128
+syntax sync minlines=256
+
+" Shows current line
+set cursorline
+set termguicolors
+
+" Searching
+set hlsearch    " highlight matches
+set incsearch   " incremental searching
+set ignorecase  " searches are case sensitive
+set smartcase   " ... unless they contain at least one capital letter
+
+"keep visual mode after indent
+vnoremap > >gv
+vnoremap < <gv
+
+" snippet using Alt
+let g:UltiSnipsExpandTrigger="<C-d>"
+let g:UltiSnipsJumpForwardTrigger="<c-f>"
+let g:UltiSnipsJumpBackwardTrigger="<c-g>"
+
+" Set comment type depending on filetype
+autocmd FileType c,cpp,cs,java,js,jsx setlocal commentstring=//\ %s
+
+" Set tab length depending on filetype
+autocmd FileType javascript,javascriptreact setlocal shiftwidth=2 tabstop=2
 
 " Smart way to move between panes
 map <C-s-up> <C-w><up>
@@ -44,12 +76,12 @@ let g:python_highlight_builtins = 1
 set spelllang=es
 " Toggle spellchecking
 function! ToggleSpellCheck()
-  set spell!
-  if &spell
-    echo "Spellcheck ON"
-  else
-    echo "Spellcheck OFF"
-  endif
+    set spell!
+    if &spell
+        echo "Spellcheck ON"
+    else
+        echo "Spellcheck OFF"
+    endif
 endfunction
 
 nnoremap <silent> <C-u> :call ToggleSpellCheck()<CR>
@@ -60,42 +92,33 @@ source /Users/krist/AppData/Local/nvim/vim-plug/plugins.vim
 " Latex preview
 " noremap <silent> <A-o> :LLPStartPreview<CR>
 
+" Coc remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
 " Coc extensions
 let g:coc_global_extensions = ['coc-json', 'coc-pairs', 'coc-clangd', 'coc-kotlin',
-                              \ 'coc-cmake', 'coc-angular', 'coc-css', 'coc-html',
-                              \ 'coc-eslint', 'coc-git', 'coc-go', 'coc-highlight',
-                              \ 'coc-jedi', 'coc-phpactor', 'coc-prettier', 'coc-rome',
-                              \ 'coc-tsserver', 'coc-java']
+            \ 'coc-cmake', 'coc-angular', 'coc-css', 'coc-html',
+            \ 'coc-git', 'coc-go', 'coc-highlight', 'coc-tsserver',
+            \ 'coc-phpactor', 'coc-rome',
+            \ 'coc-java', 'coc-pydocstring', 'coc-pyright']
 
 " (COC) update time
 set updatetime=2000
 
 " (COC) Use tab for trigger completion with characters ahead and navigate.
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+            \ pumvisible() ? "\<C-n>" :
+            \ <SID>check_back_space() ? "\<TAB>" :
+            \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-
-" ruler at column 80
-set colorcolumn=80
-highlight ColorColumn ctermbg=lightcyan guibg=blue
-
-" limit syntax highlighting
-set synmaxcol=128
-syntax sync minlines=256
-
-" Shows current line
-set cursorline
-
-if (has("termguicolors"))
-    set termguicolors
-endif
 
 " airline symbols
 let g:airline_powerline_fonts = 1
@@ -130,7 +153,6 @@ function! s:swap_down()
     call s:swap_lines(n, n + 1)
     exec n + 1
 endfunction
-" End move lines functions
 
 " Move lines up and down - commands
 noremap <silent> <C-l> :call <SID>swap_up()<CR>
@@ -161,9 +183,9 @@ map <C-n> :tabnew<CR>
 " Iterates over tabs
 map <C-p> :tabn<CR>
 " Splits window horizontally
-map <C-v> :sp<CR>
+map <C-h> :sp<CR>
 " Splits window vertically
-map <C-h> :vsp<CR>
+map <C-v> :vsp<CR>
 " Undo
 map <C-z> :undo<CR>
 " Redo

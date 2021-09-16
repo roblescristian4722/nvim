@@ -1,16 +1,34 @@
-" auto-install vim-plug
-"if empty(glob('~/.config/nvim/autoload/plug.vim'))
-  "silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
-    "\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  "autocmd VimEnter * PlugInstall
-  "autocmd VimEnter * PlugInstall | source $MYVIMRC
-"endif
-
 call plug#begin('~/.config/nvim/autoload/plugged')
     " C++ syntax
     " Plug 'octol/vim-cpp-enhanced-highlight'
     " Plug 'bfrg/vim-cpp-modern'
     Plug 'jackguo380/vim-lsp-cxx-highlight'
+
+    " Snippets.
+    Plug 'SirVer/ultisnips'
+    " Default snippets
+    Plug 'honza/vim-snippets'
+    " React/JS/Typescript snippets
+    Plug 'mlaursen/vim-react-snippets'
+
+    " Surround
+    Plug 'tpope/vim-surround'
+
+    " Icons
+    Plug 'ryanoasis/vim-devicons'
+
+    " Shows indentation levels
+    Plug 'Yggdroot/indentLine'
+
+    " FZF
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
+
+    " Coc Jedi
+    Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build', 'branch': 'main' }
+
+    " Android development
+    Plug 'hsanson/vim-android'
 
     " Moving split windows
     Plug 'wesQ3/vim-windowswap'
@@ -19,8 +37,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'pangloss/vim-javascript'
     " JSX syntax
     Plug 'junegunn/vim-plug'
-
-    " Plug 'moll/vim-node'
 
     " Kotlin syntax
     Plug 'udalov/kotlin-vim'
@@ -60,15 +76,11 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     
     " Auto pairs for '(' '[' '{'
     Plug 'jiangmiao/auto-pairs'
+    " Auto pairs for tags
+    Plug 'alvan/vim-closetag'
     
     " Dracula theme
     "Plug 'dracula/vim'
-    
-    " ALE (C/C++ Linter)
-    "Plug 'dense-analysis/ale'
-    
-    " YouCompleteMe
-    "Plug 'ycm-core/YouCompleteMe'
     
     " Stable version of coc
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
