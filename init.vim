@@ -46,9 +46,9 @@ vnoremap > >gv
 vnoremap < <gv
 
 " snippet using Alt
-let g:UltiSnipsExpandTrigger="<C-d>"
-let g:UltiSnipsJumpForwardTrigger="<c-f>"
-let g:UltiSnipsJumpBackwardTrigger="<c-g>"
+let g:UltiSnipsExpandTrigger="<C-f>"
+let g:UltiSnipsJumpForwardTrigger="<C-j>"
+let g:UltiSnipsJumpBackwardTrigger="<C-d>"
 
 " Set comment type depending on filetype
 autocmd FileType c,cpp,cs,java,js,jsx setlocal commentstring=//\ %s
@@ -176,6 +176,8 @@ set pumheight=20
 
 " vscode theme
 :colorscheme codedark
+" Transparent background
+autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
 set background=dark
 
 " Opens NERDTree
