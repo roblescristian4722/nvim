@@ -1,9 +1,11 @@
+" Defines the source file for pluggins
+source $HOME/.config/nvim/vim-plug/plugins.vim
+
 let g:polyglot_disabled = ['c', 'c++', 'c/c++', 'php', 'python']
 let g:lsp_cxx_hl_use_text_props = 1
 
 " imported from $HOME/.vimrc
 syntax on
-set clipboard=unnamedplus
 filetype plugin indent on
 set mouse=a
 set tabstop=4
@@ -11,10 +13,41 @@ set shiftwidth=4
 set expandtab
 " enables getting to the end of line on normal mode
 set ve+=onemore
+set sel=inclusive
 " Shows line numbers
 set number
 "set encoding
 set encoding=UTF-8
+" Uses system clipboard instead of vim's clipboard
+set clipboard=unnamedplus
+noremap  y "+y
+noremap  Y "+Y
+noremap  p "+p
+noremap  P "+P
+noremap  d "_d
+noremap  D "_D
+noremap  c "+C
+noremap  C "+C
+vnoremap y "+y
+vnoremap Y "+Y
+vnoremap p "+p
+vnoremap P "+P
+vnoremap d "_d
+vnoremap D "_D
+vnoremap C "+C
+vnoremap c "+c
+
+" Limit popup menu height
+set pumheight=20
+
+" vscode theme
+set t_Co=256
+set t_ut=
+:colorscheme codedark
+
+" Highlight TODO and FIXME
+syn match   myTodo   contained   "\<\(TODO\|FIXME\):"
+hi def link myTodo Todo
 
 " Polyglot
 set nocompatible
@@ -23,13 +56,19 @@ set nocompatible
 let g:cpp_attributes_highlight = 1
 let g:cpp_member_highlight = 1
 
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+let g:cpp_posix_standard = 1
+let g:cpp_concepts_highlight = 1
+
 " ruler at column 80
 set colorcolumn=80
 highlight ColorColumn ctermbg=lightcyan guibg=blue
 
 " limit syntax highlighting
-set synmaxcol=128
-syntax sync minlines=256
+" set synmaxcol=128
+" syntax sync minlines=256
 
 " Shows current line
 set cursorline
@@ -85,9 +124,6 @@ function! ToggleSpellCheck()
 endfunction
 
 nnoremap <silent> <C-u> :call ToggleSpellCheck()<CR>
-
-" Defines the source file for pluggins
-source $HOME/.config/nvim/vim-plug/plugins.vim
 
 " Latex preview
 " noremap <silent> <A-o> :LLPStartPreview<CR>
@@ -161,7 +197,7 @@ noremap <silent> <C-l> :call <SID>swap_up()<CR>
 noremap <silent> <C-k> :call <SID>swap_down()<CR>
 
 " Multiple cursor
-let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_use_default_mapping = 0
 let g:multi_cursor_start_word_key      = '<C-i>'
 let g:multi_cursor_select_all_word_key = '<A-i>'
 let g:multi_cursor_start_key           = 'g<C-n>'
@@ -171,11 +207,6 @@ let g:multi_cursor_prev_key            = '<C-z>'
 let g:multi_cursor_skip_key            = '<C-x>'
 let g:multi_cursor_quit_key            = '<Esc>'
 
-" Limit popup menu height
-set pumheight=20
-
-" vscode theme
-:colorscheme codedark
 " Transparent background
 autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
 set background=dark
