@@ -12,6 +12,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Plug 'bfrg/vim-cpp-modern'
     Plug 'jackguo380/vim-lsp-cxx-highlight'
 
+    " Git
+    Plug 'tpope/vim-fugitive'
+
     " Snippets.
     Plug 'SirVer/ultisnips'
     
@@ -57,6 +60,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " latex
     " Plug 'xuhdev/vim-latex-live-preview'
+   
+    " Golang
+    Plug 'fatih/vim-go'
 
     " Comments usgin "gc" command
     Plug 'tpope/vim-commentary'
@@ -73,6 +79,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " File Explorer
     Plug 'scrooloose/NERDTree'
+    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
     
     " Auto pairs for '(' '[' '{'
     Plug 'jiangmiao/auto-pairs'

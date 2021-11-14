@@ -7,7 +7,7 @@
     "clangd.fallbackFlags": [
         "-Wall"
     ],
-    "coc.preferences.semanticTokensHighlights": false, 
+    "coc.preferences.semanticTokensHighlights": false,
     "clangd.semanticHighlighting": true,
     "rome.enable": true,
     "jedi.enable": true,
