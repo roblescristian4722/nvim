@@ -10,7 +10,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " C++ syntax
     " Plug 'octol/vim-cpp-enhanced-highlight'
     " Plug 'bfrg/vim-cpp-modern'
-    Plug 'jackguo380/vim-lsp-cxx-highlight'
+    " Plug 'jackguo380/vim-lsp-cxx-highlight'
+
+    " LSP config
+    Plug 'neovim/nvim-lspconfig'
 
     " Git
     Plug 'tpope/vim-fugitive'
@@ -88,7 +91,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'alvan/vim-closetag'
     
     " Stable version of coc
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    " Plug 'neoclide/coc.nvim', {'branch': 'release'}
     
     " colorschemes
     Plug 'tomasiser/vim-code-dark'

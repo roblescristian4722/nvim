@@ -3,7 +3,7 @@ let g:coc_global_extensions = ['coc-json', 'coc-pairs', 'coc-clangd', 'coc-kotli
             \ 'coc-cmake', 'coc-angular', 'coc-css', 'coc-html', 'coc-xml',
             \ 'coc-go', 'coc-highlight', 'coc-tsserver', 'coc-phpactor',
             \ 'coc-texlab', 'coc-rome', 'coc-java-dependency', 'coc-git',
-            \ 'coc-java', 'coc-pydocstring', 'coc-pyright']
+            \ 'coc-java', 'coc-pyright' ]
 
 " (COC) update time
 set updatetime=2000
