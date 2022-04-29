@@ -10,6 +10,13 @@ vim.call('plug#begin', '~/.config/nvim/plugged')
     Plug 'neovim/nvim-lspconfig'
     -- LSP installer
     Plug 'williamboman/nvim-lsp-installer'
+    -- LSP completion
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'hrsh7th/cmp-nvim-lsp'
+    Plug 'hrsh7th/cmp-buffer'
+    Plug 'hrsh7th/cmp-path'
+    Plug 'hrsh7th/cmp-cmdline'
+    Plug 'hrsh7th/nvim-cmp'
 
     -- Git
     Plug 'tpope/vim-fugitive'
@@ -93,6 +100,7 @@ vim.call('plug#begin', '~/.config/nvim/plugged')
     Plug 'tomasiser/vim-code-dark'
     
     -- Multiple cursors
-    Plug 'terryma/vim-multiple-cursors'
+    -- Plug 'terryma/vim-multiple-cursors'
+    Plug('mg979/vim-visual-multi', {['branch'] = 'master'})
 
 vim.call('plug#end')

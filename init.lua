@@ -1,4 +1,5 @@
 require "plugins"
+require "nvim-cmp"
 
 -- Sets encoding to UTF-8
 vim.opt.encoding = "utf-8"
@@ -44,20 +45,17 @@ vim.opt.signcolumn = "yes"
 
 -- Reposition windows
 vim.cmd("let g:windowswap_map_keys = 0") -- Prevents default windows
-vim.api.nvim_set_keymap( "n", "wy", "WindowSwap#MarkWindowSwap()<CR>", { noremap = true } )
-vim.api.nvim_set_keymap( "n", "wp", "WindowSwap#DoWindowSwap()<CR>", { noremap = true } )
-vim.api.nvim_set_keymap( "n", "ww", "WindowSwap#EasyWindowSwap()<CR>", { noremap = true } )
+vim.api.nvim_set_keymap( "n", "wy", ":call WindowSwap#MarkWindowSwap()<CR>", { noremap = true } )
+vim.api.nvim_set_keymap( "n", "wp", ":call WindowSwap#DoWindowSwap()<CR>", { noremap = true } )
+vim.api.nvim_set_keymap( "n", "ww", ":call WindowSwap#EasyWindowSwap()<CR>", { noremap = true } )
 
--- Multiple cursor
-vim.g.multi_cursor_use_default_mapping = 0
-vim.g.multi_cursor_select_all_word_key = '<A-i>'
-vim.g.multi_cursor_start_key = 'g<C-n>'
-vim.g.multi_cursor_select_all_key = 'g<A-n>'
-vim.g.multi_cursor_next_key = '<C-i>'
-vim.g.multi_cursor_prev_key = '<C-z>'
-vim.g.multi_cursor_skip_key = '<C-x>'
-vim.g.multi_cursor_quit_key = '<Esc>'
-vim.g.multi_cursor_start_word_key = "<C-i>"
+-- -- Multiple cursor
+vim.cmd([[
+    let g:VM_maps = {}
+    let g:VM_maps['Find Under']         = '<C-d>'           " replace C-n
+    let g:VM_maps['Find Subword Under'] = '<C-d>'           " replace visual C-n
+    let g:VM_leader = 'h'
+]])
 
 -- Searching configs
 vim.opt.hlsearch = true     -- highlights matches
@@ -93,7 +91,6 @@ vim.api.nvim_set_keymap( "v", "d", '"+d', { noremap = true } )
 vim.api.nvim_set_keymap( "v", "D", '"+D', { noremap = true } )
 vim.api.nvim_set_keymap( "v", "c", '"+c', { noremap = true } )
 vim.api.nvim_set_keymap( "v", "C", '"+C', { noremap = true } )
-
 
 -- remaping hjlk keys
 vim.api.nvim_set_keymap( "n", "j", "h", { noremap = true } )
@@ -156,3 +153,6 @@ vim.api.nvim_set_keymap( "i", "<A-Right>", ":vertical resize -2<CR>", { noremap 
 -- Vscode theme
 vim.opt.background = "dark"
 vim.cmd("autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE")
+
+-- Python syntax highlight
+vim.g.python_highlight_all = 1
