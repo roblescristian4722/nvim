@@ -1,5 +1,6 @@
 require "plugins"
 require "nvim-cmp"
+require "vim-vsnip"
 
 -- Sets encoding to UTF-8
 vim.opt.encoding = "utf-8"
@@ -49,7 +50,7 @@ vim.api.nvim_set_keymap( "n", "wy", ":call WindowSwap#MarkWindowSwap()<CR>", { n
 vim.api.nvim_set_keymap( "n", "wp", ":call WindowSwap#DoWindowSwap()<CR>", { noremap = true } )
 vim.api.nvim_set_keymap( "n", "ww", ":call WindowSwap#EasyWindowSwap()<CR>", { noremap = true } )
 
--- -- Multiple cursor
+-- Multiple cursor
 vim.cmd([[
     let g:VM_maps = {}
     let g:VM_maps['Find Under']         = '<C-d>'           " replace C-n
@@ -156,3 +157,68 @@ vim.cmd("autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE")
 
 -- Python syntax highlight
 vim.g.python_highlight_all = 1
+
+-- lightline shows full path for current file along git info
+vim.g.lightline = { component_function = { filename = 'LightlineFilename' } }
+
+vim.cmd([[
+    function! LightlineFilename()
+      let root = fnamemodify(get(b:, 'git_dir'), ':h')
+      let path = expand('%:p')
+      if path[:len(root)-1] ==# root
+        return path[len(root)+1:]
+      endif
+      return expand('%')
+    endfunction
+]])
+
+-- Move lines up and down (functions)
+vim.cmd([[
+    function! s:swap_lines(n1, n2)
+    let line1 = getline(a:n1)
+    let line2 = getline(a:n2)
+    call setline(a:n1, line2)
+    call setline(a:n2, line1)
+    endfunction
+
+    function! s:swap_up()
+        let n = line('.')
+        if n == 1
+            return
+        endif
+
+        call s:swap_lines(n, n - 1)
+        exec n - 1
+    endfunction
+
+    function! s:swap_down()
+        let n = line('.')
+        if n == line('$')
+            return
+        endif
+
+        call s:swap_lines(n, n + 1)
+        exec n + 1
+    endfunction
+
+    noremap <silent> <C-l> :call <SID>swap_up()<CR>
+    noremap <silent> <C-k> :call <SID>swap_down()<CR>
+]])
+
+-- Open new split panes to right and below
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+
+-- Terminal on split screen
+vim.cmd([[
+    " turn terminal to normal mode with escape
+    tnoremap <Esc> <C-\><C-n>
+    " start terminal in insert mode
+    au BufEnter * if &buftype == 'terminal' | :startinsert | endif
+    " open terminal on ctrl+n
+    function! OpenTerminal()
+      split term://zsh
+      resize 10
+    endfunction
+    nnoremap <c-t> :call OpenTerminal()<CR>
+]])

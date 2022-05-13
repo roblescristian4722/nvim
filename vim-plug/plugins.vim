@@ -14,6 +14,15 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " LSP config
     Plug 'neovim/nvim-lspconfig'
+    " LSP installer
+    Plug 'williamboman/nvim-lsp-installer'
+    " LSP completion
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'hrsh7th/cmp-nvim-lsp'
+    Plug 'hrsh7th/cmp-buffer'
+    Plug 'hrsh7th/cmp-path'
+    Plug 'hrsh7th/cmp-cmdline'
+    Plug 'hrsh7th/nvim-cmp'
 
     " Git
     Plug 'tpope/vim-fugitive'
@@ -41,7 +50,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'junegunn/fzf.vim'
 
     " Coc Jedi
-    Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build', 'branch': 'main' }
+    " Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build', 'branch': 'main' }
 
     " Android development
     Plug 'hsanson/vim-android'
