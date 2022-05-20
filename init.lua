@@ -2,6 +2,13 @@ require "plugins"
 require "nvim-cmp"
 require "vim-vsnip"
 
+-- cmp-path
+require'cmp'.setup {
+  sources = {
+    { name = 'path' }
+  }
+}
+
 -- Sets encoding to UTF-8
 vim.opt.encoding = "utf-8"
 
