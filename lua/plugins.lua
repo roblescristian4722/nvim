@@ -11,7 +11,6 @@ vim.call('plug#begin', '~/.config/nvim/plugged')
     -- LSP installer
     Plug 'williamboman/nvim-lsp-installer'
     -- LSP completion
-    Plug 'neovim/nvim-lspconfig'
     Plug 'hrsh7th/cmp-nvim-lsp'
     Plug 'hrsh7th/cmp-buffer'
     Plug 'hrsh7th/cmp-path'
