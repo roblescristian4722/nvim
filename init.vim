@@ -1,39 +1,83 @@
+" Defines the source file for pluggins
+source /Users/cirobles/AppData/Local/nvim/vim-plug/plugins.vim
+
+" coc configurations
+source /Users/cirobles/AppData/Local/nvim/coc.vim
+
 let g:polyglot_disabled = ['c', 'c++', 'c/c++', 'php', 'python']
 let g:lsp_cxx_hl_use_text_props = 1
 
 " imported from $HOME/.vimrc
 syntax on
-set clipboard=unnamedplus
 filetype plugin indent on
 set mouse=a
 set tabstop=4
 set shiftwidth=4
 set expandtab
+
+" Folding
+set foldmethod=syntax
+set nofoldenable
+set foldlevel=1
+
+" Transparent background
+set t_Co=256
+set t_ut=
+:colorscheme codedark
+
 " enables getting to the end of line on normal mode
 set ve+=onemore
+set sel=inclusive
 " Shows line numbers
 set number
 "set encoding
 set encoding=UTF-8
+" Uses system clipboard instead of vim's clipboard
+set clipboard=unnamedplus
+noremap  y "+y
+noremap  Y "+Y
+noremap  p "+p
+noremap  P "+P
+noremap  d "_d
+noremap  D "_D
+noremap  c "+C
+noremap  C "+C
+vnoremap y "+y
+vnoremap Y "+Y
+vnoremap p "+p
+vnoremap P "+P
+vnoremap d "_d
+vnoremap D "_D
+vnoremap C "+C
+vnoremap c "+c
 
-" Polyglot
-set nocompatible
+" Limit popup menu height
+set pumheight=20
+
+" Highlight TODO and FIXME
+syn match   myTodo   contained   "\<\(TODO\|FIXME\):"
+hi def link myTodo Todo
+
 " C++ syntax highlighting
 "let g:cpp_concepts_highlight = 1
 let g:cpp_attributes_highlight = 1
 let g:cpp_member_highlight = 1
 
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+let g:cpp_posix_standard = 1
+let g:cpp_concepts_highlight = 1
+
 " ruler at column 80
 set colorcolumn=80
-highlight ColorColumn ctermbg=lightcyan guibg=blue
-
-" limit syntax highlighting
-set synmaxcol=128
-syntax sync minlines=256
+highlight ColorColumn ctermbg=gray guibg=gray
 
 " Shows current line
 set cursorline
 set termguicolors
+" Shows git signs next to line number
+set signcolumn=yes
 
 " Searching
 set hlsearch    " highlight matches
@@ -46,12 +90,12 @@ vnoremap > >gv
 vnoremap < <gv
 
 " snippet using Alt
-let g:UltiSnipsExpandTrigger="<C-d>"
-let g:UltiSnipsJumpForwardTrigger="<c-f>"
-let g:UltiSnipsJumpBackwardTrigger="<c-g>"
+let g:UltiSnipsExpandTrigger="<C-f>"
+let g:UltiSnipsJumpForwardTrigger="<C-j>"
+let g:UltiSnipsJumpBackwardTrigger="<C-d>"
 
 " Set comment type depending on filetype
-autocmd FileType c,cpp,cs,java,js,jsx setlocal commentstring=//\ %s
+autocmd FileType c,cpp,cs,java,js,jsx,php setlocal commentstring=//\ %s
 
 " Set tab length depending on filetype
 autocmd FileType javascript,javascriptreact setlocal shiftwidth=2 tabstop=2
@@ -76,62 +120,25 @@ let g:python_highlight_builtins = 1
 set spelllang=es
 " Toggle spellchecking
 function! ToggleSpellCheck()
-    set spell!
-    if &spell
-        echo "Spellcheck ON"
-    else
-        echo "Spellcheck OFF"
-    endif
+set spell!
+if &spell
+echo "Spellcheck ON"
+else
+echo "Spellcheck OFF"
+endif
 endfunction
-
 nnoremap <silent> <C-u> :call ToggleSpellCheck()<CR>
-
-" Defines the source file for pluggins
-source /Users/krist/AppData/Local/nvim/vim-plug/plugins.vim
 
 " Latex preview
 " noremap <silent> <A-o> :LLPStartPreview<CR>
-
-" Coc remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Coc extensions
-let g:coc_global_extensions = ['coc-json', 'coc-pairs', 'coc-clangd', 'coc-kotlin',
-            \ 'coc-cmake', 'coc-angular', 'coc-css', 'coc-html',
-            \ 'coc-git', 'coc-go', 'coc-highlight', 'coc-tsserver',
-            \ 'coc-phpactor', 'coc-rome',
-            \ 'coc-java', 'coc-pydocstring', 'coc-pyright']
-
-" (COC) update time
-set updatetime=2000
-
-" (COC) Use tab for trigger completion with characters ahead and navigate.
-inoremap <silent><expr> <TAB>
-            \ pumvisible() ? "\<C-n>" :
-            \ <SID>check_back_space() ? "\<TAB>" :
-            \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" airline symbols
-let g:airline_powerline_fonts = 1
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
+" let g:livepreview_engine = 'xelatex'
 
 " Move lines up and down - functions
 function! s:swap_lines(n1, n2)
-    let line1 = getline(a:n1)
-    let line2 = getline(a:n2)
-    call setline(a:n1, line2)
-    call setline(a:n2, line1)
+let line1 = getline(a:n1)
+let line2 = getline(a:n2)
+call setline(a:n1, line2)
+call setline(a:n2, line1)
 endfunction
 
 function! s:swap_up()
@@ -154,12 +161,28 @@ function! s:swap_down()
     exec n + 1
 endfunction
 
+" lightline shows full path for current file along git info
+let g:lightline = {
+      \ 'component_function': {
+      \   'filename': 'LightlineFilename',
+      \ }
+      \ }
+
+function! LightlineFilename()
+  let root = fnamemodify(get(b:, 'git_dir'), ':h')
+  let path = expand('%:p')
+  if path[:len(root)-1] ==# root
+    return path[len(root)+1:]
+  endif
+  return expand('%')
+endfunction
+
 " Move lines up and down - commands
 noremap <silent> <C-l> :call <SID>swap_up()<CR>
 noremap <silent> <C-k> :call <SID>swap_down()<CR>
 
 " Multiple cursor
-let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_use_default_mapping = 0
 let g:multi_cursor_start_word_key      = '<C-i>'
 let g:multi_cursor_select_all_word_key = '<A-i>'
 let g:multi_cursor_start_key           = 'g<C-n>'
@@ -168,13 +191,6 @@ let g:multi_cursor_next_key            = '<C-i>'
 let g:multi_cursor_prev_key            = '<C-z>'
 let g:multi_cursor_skip_key            = '<C-x>'
 let g:multi_cursor_quit_key            = '<Esc>'
-
-" Limit popup menu height
-set pumheight=20
-
-" vscode theme
-colorscheme codedark
-set background=dark
 
 " Opens NERDTree
 map <C-o> :NERDTreeToggle<CR>
@@ -203,27 +219,14 @@ noremap k j
 noremap l k
 noremap ñ l
 
-" remaping hjlk keys for uppercase
-noremap J h
-noremap K j
-noremap L k
-noremap Ñ l
-
 "Ctrl + s to Save changes
 noremap <silent> <C-S>          :update<CR>
 vnoremap <silent> <C-S>         <C-C>:update<CR>
 inoremap <silent> <C-S>         <C-O>:update<CR>
 
-" disable vim-airline extensions
-let g:airline#extensions#tabline#enabled = 0
-let g:airline#extensions#whitespace#enabled = 0
-let g:airline#extensions#po#enabled = 0
-let g:airline#extensions#term#enabled = 0
-let g:airline#extensions#keymap#enabled = 0
-let g:airline#extensions#hunks#enabled = 0
-let g:airline#extensions#quickfix#enabled = 0
-let g:airline#extensions#netrw#enabled = 0
-let g:airline#extensions#coc#enabled = 1
+" vscode theme
+set background=dark
+autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
 
 " open new split panes to right and below
 set splitright
