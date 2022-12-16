@@ -6,6 +6,9 @@ source $HOME/.config/nvim/coc.vim
 let g:polyglot_disabled = ['c', 'c++', 'c/c++', 'php', 'python']
 let g:lsp_cxx_hl_use_text_props = 1
 
+" Disables double $ for autocompletion in php files
+autocmd FileType php set iskeyword+=$
+
 " imported from $HOME/.vimrc
 syntax on
 filetype plugin indent on
@@ -182,17 +185,6 @@ endfunction
 noremap <silent> <C-l> :call <SID>swap_up()<CR>
 noremap <silent> <C-k> :call <SID>swap_down()<CR>
 
-" Multiple cursor
-let g:multi_cursor_use_default_mapping = 0
-let g:multi_cursor_start_word_key      = '<C-i>'
-let g:multi_cursor_select_all_word_key = '<A-i>'
-let g:multi_cursor_start_key           = 'g<C-n>'
-let g:multi_cursor_select_all_key      = 'g<A-n>'
-let g:multi_cursor_next_key            = '<C-i>'
-let g:multi_cursor_prev_key            = '<C-z>'
-let g:multi_cursor_skip_key            = '<C-x>'
-let g:multi_cursor_quit_key            = '<Esc>'
-
 " Opens NERDTree
 map <C-o> :NERDTreeToggle<CR>
 " Creates new tab
@@ -224,6 +216,11 @@ noremap ñ l
 noremap <silent> <C-S>          :update<CR>
 vnoremap <silent> <C-S>         <C-C>:update<CR>
 inoremap <silent> <C-S>         <C-O>:update<CR>
+
+" Multiple cursors
+let g:VM_maps = {}
+let g:VM_maps['Find Under']         = '<C-d>'           " replace C-n
+let g:VM_maps['Find Subword Under'] = '<C-d>'           " replace visual C-n
 
 " vscode theme
 set background=dark
