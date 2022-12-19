@@ -79,7 +79,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " File Explorer
     Plug 'scrooloose/NERDTree'
-    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+    " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
     
     " Auto pairs for '(' '[' '{'
     Plug 'jiangmiao/auto-pairs'
@@ -94,6 +94,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'tomasiser/vim-code-dark'
     
     " Multiple cursors
-    Plug 'terryma/vim-multiple-cursors'
+    Plug 'mg979/vim-visual-multi'
 
 call plug#end()

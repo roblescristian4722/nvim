@@ -91,11 +91,6 @@ set smartcase   " ... unless they contain at least one capital letter
 vnoremap > >gv
 vnoremap < <gv
 
-" snippet using Alt
-let g:UltiSnipsExpandTrigger="<C-f>"
-let g:UltiSnipsJumpForwardTrigger="<C-j>"
-let g:UltiSnipsJumpBackwardTrigger="<C-d>"
-
 " Set comment type depending on filetype
 autocmd FileType c,cpp,cs,java,js,jsx,php setlocal commentstring=//\ %s
 
@@ -239,3 +234,8 @@ function! OpenTerminal()
   resize 10
 endfunction
 nnoremap <c-t> :call OpenTerminal()<CR>
+
+" Snippets
+let g:UltiSnipsExpandTrigger       = '<c-p>'
+let g:UltiSnipsJumpForwardTrigger  = '<c-m>'
+let g:UltiSnipsJumpBackwardTrigger = '<c-n>'
