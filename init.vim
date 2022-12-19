@@ -184,8 +184,10 @@ noremap <silent> <C-k> :call <SID>swap_down()<CR>
 map <C-o> :NERDTreeToggle<CR>
 " Creates new tab
 map <C-n> :tabnew<CR>
-" Iterates over tabs
+" Next tab
 map <C-p> :tabn<CR>
+" Prev tab
+map <C-m> :tabp<CR>
 " Splits window horizontally
 map <C-h> :sp<CR>
 " Splits window vertically
