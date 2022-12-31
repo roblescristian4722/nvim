@@ -74,11 +74,11 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming
-nmap <leader>rn <Plug>(coc-rename)
+nmap <silent>rn <Plug>(coc-rename)
 
 " Formatting selected code
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+xmap <silent>fr  <Plug>(coc-format-selected)
+nmap <silent>fr  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
@@ -94,19 +94,19 @@ xmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>a  <Plug>(coc-codeaction-selected)
 
 " Remap keys for applying code actions at the cursor position
-nmap <leader>ac  <Plug>(coc-codeaction-cursor)
+nmap <silent>ac  <Plug>(coc-codeaction-cursor)
 " Remap keys for apply code actions affect whole buffer
 nmap <leader>as  <Plug>(coc-codeaction-source)
 " Apply the most preferred quickfix action to fix diagnostic on the current line
 nmap <leader>qf  <Plug>(coc-fix-current)
 
 " Remap keys for applying refactor code actions
-nmap <silent> <leader>re <Plug>(coc-codeaction-refactor)
-xmap <silent> <leader>r  <Plug>(coc-codeaction-refactor-selected)
-nmap <silent> <leader>r  <Plug>(coc-codeaction-refactor-selected)
+nmap <silent> re <Plug>(coc-codeaction-refactor)
+xmap <silent> re  <Plug>(coc-codeaction-refactor-selected)
+nmap <silent> re  <Plug>(coc-codeaction-refactor-selected)
 
 " Run the Code Lens action on the current line
-nmap <leader>cl  <Plug>(coc-codelens-action)
+nmap <silent>cl  <Plug>(coc-codelens-action)
 
 " Map function and class text objects
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server
@@ -165,3 +165,6 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+nnoremap <silent> G :CocCommand git.chunkInfo<CR>
+nnoremap <silent> D :CocCommand git.diffCached<CR>

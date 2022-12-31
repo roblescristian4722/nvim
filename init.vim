@@ -1,9 +1,9 @@
 " Defines the source file for pluggins
 source $HOME/.config/nvim/vim-plug/plugins.vim
+
 " coc configurations
 source $HOME/.config/nvim/coc.vim
 
-let g:polyglot_disabled = ['c', 'c++', 'c/c++', 'php', 'python']
 let g:lsp_cxx_hl_use_text_props = 1
 
 " Disables double $ for autocompletion in php files
@@ -90,11 +90,6 @@ set smartcase   " ... unless they contain at least one capital letter
 "keep visual mode after indent
 vnoremap > >gv
 vnoremap < <gv
-
-" snippet using Alt
-let g:UltiSnipsExpandTrigger="<C-f>"
-let g:UltiSnipsJumpForwardTrigger="<C-j>"
-let g:UltiSnipsJumpBackwardTrigger="<C-d>"
 
 " Set comment type depending on filetype
 autocmd FileType c,cpp,cs,java,js,jsx,php setlocal commentstring=//\ %s
@@ -221,6 +216,7 @@ inoremap <silent> <C-S>         <C-O>:update<CR>
 let g:VM_maps = {}
 let g:VM_maps['Find Under']         = '<C-d>'           " replace C-n
 let g:VM_maps['Find Subword Under'] = '<C-d>'           " replace visual C-n
+let g:VM_maps["Switch Mode"]        = '<C-m>'
 
 " vscode theme
 set background=dark
@@ -239,3 +235,7 @@ function! OpenTerminal()
   resize 10
 endfunction
 nnoremap <c-t> :call OpenTerminal()<CR>
+
+let g:UltiSnipsExpandTrigger='<c-p>'
+let g:UltiSnipsJumpForwardTrigger="<c-n>"
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"
