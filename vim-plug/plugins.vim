@@ -71,7 +71,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " File Explorer
     Plug 'scrooloose/NERDTree'
-    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+    " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
     
     " Auto pairs for '(' '[' '{'
     Plug 'jiangmiao/auto-pairs'

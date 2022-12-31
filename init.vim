@@ -41,7 +41,6 @@ noremap  Y "+Y
 noremap  p "+p
 noremap  P "+P
 noremap  d "_d
-noremap  D "_D
 noremap  c "+C
 noremap  C "+C
 vnoremap y "+y
@@ -181,19 +180,21 @@ noremap <silent> <C-l> :call <SID>swap_up()<CR>
 noremap <silent> <C-k> :call <SID>swap_down()<CR>
 
 " Opens NERDTree
-map <C-o> :NERDTreeToggle<CR>
+map <silent><C-o> :NERDTreeToggle<CR>
 " Creates new tab
-map <C-n> :tabnew<CR>
-" Iterates over tabs
-map <C-p> :tabn<CR>
+map <silent><C-n> :tabnew<CR>
+" Next tab
+map <silent><C-p> :tabn<CR>
+" Prev tab
+map <silent>P :tabp<CR>
 " Splits window horizontally
-map <C-h> :sp<CR>
+map <silent><C-h> :sp<CR>
 " Splits window vertically
-map <C-v> :vsp<CR>
+map <silent><C-v> :vsp<CR>
 " Undo
-map <C-z> :undo<CR>
+map <silent><C-z> :undo<CR>
 " Redo
-map <C-y> :redo<CR>
+map <silent><C-y> :redo<CR>
 
 " Maps Alt-[j,k,l, ñ] to resizing a window split
 noremap <silent> <A-Up> :resize -2<CR>
@@ -236,6 +237,7 @@ function! OpenTerminal()
 endfunction
 nnoremap <c-t> :call OpenTerminal()<CR>
 
-let g:UltiSnipsExpandTrigger='<c-p>'
-let g:UltiSnipsJumpForwardTrigger="<c-n>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+" Snippets
+let g:UltiSnipsExpandTrigger       = '<c-p>'
+let g:UltiSnipsJumpForwardTrigger  = '<c-m>'
+let g:UltiSnipsJumpBackwardTrigger = '<c-n>'
