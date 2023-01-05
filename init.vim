@@ -9,6 +9,12 @@ let g:lsp_cxx_hl_use_text_props = 1
 " Disables double $ for autocompletion in php files
 autocmd FileType php set iskeyword+=$
 
+" Set comment type depending on filetype
+autocmd FileType c,cpp,cs,java,js,jsx,php setlocal commentstring=//\ %s
+
+" Set tab length depending on filetype
+autocmd FileType javascript,javascriptreact,typescript,typescriptreact setlocal shiftwidth=2 tabstop=2
+
 " imported from $HOME/.vimrc
 syntax on
 filetype plugin indent on
@@ -89,12 +95,6 @@ set smartcase   " ... unless they contain at least one capital letter
 "keep visual mode after indent
 vnoremap > >gv
 vnoremap < <gv
-
-" Set comment type depending on filetype
-autocmd FileType c,cpp,cs,java,js,jsx,php setlocal commentstring=//\ %s
-
-" Set tab length depending on filetype
-autocmd FileType javascript,javascriptreact setlocal shiftwidth=2 tabstop=2
 
 " Smart way to move between panes
 map <C-s-up> <C-w><up>
@@ -241,3 +241,6 @@ nnoremap <c-t> :call OpenTerminal()<CR>
 let g:UltiSnipsExpandTrigger       = '<c-p>'
 let g:UltiSnipsJumpForwardTrigger  = '<c-m>'
 let g:UltiSnipsJumpBackwardTrigger = '<c-n>'
+
+" Search in files using ripgrep
+nnoremap <silent> <C-f> :Rg <CR>
