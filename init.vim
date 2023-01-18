@@ -230,7 +230,7 @@ tnoremap <Esc> <C-\><C-n>
 au BufEnter * if &buftype == 'terminal' | :startinsert | endif
 " open terminal on ctrl+n
 function! OpenTerminal()
-  split term://powershell
+  split term://zsh
   resize 10
 endfunction
 nnoremap <c-t> :call OpenTerminal()<CR>
