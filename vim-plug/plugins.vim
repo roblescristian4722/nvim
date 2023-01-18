@@ -9,10 +9,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " Snippets.
     Plug 'SirVer/ultisnips'
-    
+
     " Default snippets
     Plug 'honza/vim-snippets'
-   
+
     " React/JS/Typescript snippets
     Plug 'mlaursen/vim-react-snippets'
 
@@ -52,7 +52,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " latex
     " Plug 'xuhdev/vim-latex-live-preview'
-   
+
     " Golang
     Plug 'fatih/vim-go'
 
@@ -72,20 +72,20 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " File Explorer
     Plug 'scrooloose/NERDTree'
     " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-    
+
     " Auto pairs for '(' '[' '{'
     Plug 'jiangmiao/auto-pairs'
 
     " Auto pairs for tags
     Plug 'alvan/vim-closetag'
-    
+
     " Stable version of coc
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    
+
     " colorschemes
     Plug 'tomasiser/vim-code-dark'
-    
+
     " Multiple cursors
     Plug 'mg979/vim-visual-multi'
 
-call plug#end()
+    call plug#end()
