@@ -1,8 +1,8 @@
 " Defines the source file for pluggins
-source ./vim-plug/plugins.vim
+source ~/.config/nvim/vim-plug/plugins.vim
 
 " coc configurations
-source ./coc.vim
+source ~/.config/nvim/coc.vim
 
 let g:lsp_cxx_hl_use_text_props = 1
 
