@@ -1,8 +1,8 @@
 " Defines the source file for pluggins
-source $HOME/.config/nvim/vim-plug/plugins.vim
+source ./vim-plug/plugins.vim
 
 " coc configurations
-source $HOME/.config/nvim/coc.vim
+source ./coc.vim
 
 let g:lsp_cxx_hl_use_text_props = 1
 
@@ -13,7 +13,7 @@ autocmd FileType php set iskeyword+=$
 autocmd FileType c,cpp,cs,java,js,jsx,php setlocal commentstring=//\ %s
 
 " Set tab length depending on filetype
-autocmd FileType javascript,javascriptreact,typescript,typescriptreact setlocal shiftwidth=2 tabstop=2
+autocmd FileType javascript,javascriptreact,typescript,typescriptreact setlocal shiftwidth=2 tabstop=2 whichwrap
 
 " imported from $HOME/.vimrc
 syntax on
@@ -174,8 +174,6 @@ function! LightlineFilename()
 endfunction
 
 " Move lines up and down - commands
-"noremap <silent> <C-s-up> :call <SID>swap_up()<CR>
-"noremap <silent> <C-s-down> :call <SID>swap_down()<CR>
 noremap <silent> <C-l> :call <SID>swap_up()<CR>
 noremap <silent> <C-k> :call <SID>swap_down()<CR>
 
@@ -232,7 +230,7 @@ tnoremap <Esc> <C-\><C-n>
 au BufEnter * if &buftype == 'terminal' | :startinsert | endif
 " open terminal on ctrl+n
 function! OpenTerminal()
-  split term://zsh
+  split term://powershell
   resize 10
 endfunction
 nnoremap <c-t> :call OpenTerminal()<CR>
@@ -244,3 +242,7 @@ let g:UltiSnipsJumpBackwardTrigger = '<c-n>'
 
 " Search in files using ripgrep
 nnoremap <silent> <C-f> :Rg <CR>
+
+" Highlight tiling spaces red
+highlight RedundantSpaces ctermbg=203 guibg=#ff5f5f
+match RedundantSpaces /\s\+$/
