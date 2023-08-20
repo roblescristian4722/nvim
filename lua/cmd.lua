@@ -9,12 +9,18 @@ vim.cmd [[syntax on]]
 -- Enables filetype based indentation
 vim.cmd [[filetype plugin indent on]]
 
--- Gray ruler at column 80
+-- Gray ruler at columns 80 and 100
 vim.cmd [[set colorcolumn=80]]
 vim.cmd [[highlight ColorColumn ctermbg=gray guibg=gray]]
 
+-- Disables double $ for autocompletion in php files
+vim.cmd [[autocmd FileType php set iskeyword+=$]]
+
+-- Set comment type depending on filetype
+vim.cmd [[autocmd FileType c,cpp,cs,java,js,jsx,php setlocal commentstring=//\ %s]]
+
 -- Set tab length depending on filetype
-vim.cmd [[autocmd FileType javascript,javascriptreact setlocal shiftwidth=2 tabstop=2]]
+vim.cmd [[autocmd FileType javascript,javascriptreact,typescript,typescriptreact,lua setlocal shiftwidth=2 tabstop=2]]
 
 -- Transparency
-vim.cmd [["autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE"]]
+-- vim.cmd [[autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE]]
