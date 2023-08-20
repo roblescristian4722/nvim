@@ -1,5 +1,9 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
 require("plugins.treesitter")
+require("plugins.undotree")
+require("plugins.telescope")
+require("plugins.lsp")
+require("plugins.mason")
 
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
@@ -44,9 +48,6 @@ return require('packer').startup(function(use)
   -- Moving splitted windows
   use 'wesQ3/vim-windowswap'
 
-  -- Mason (LSP server installer)
-  use 'williamboman/mason.nvim'
-
   -- FZF
   use (
     'junegunn/fzf',
@@ -71,4 +72,30 @@ return require('packer').startup(function(use)
 
   -- Shows indentation levels
   use 'Yggdroot/indentLine'
+
+  -- Undotree
+  use 'mbbill/undotree'
+
+  -- Telescope (file finder)
+  use {
+    'nvim-telescope/telescope.nvim', tag = '0.1.2',
+    -- or                            , branch = '0.1.x',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
+
+  use {
+    'VonHeikemen/lsp-zero.nvim',
+    branch = 'v2.x',
+    requires = {
+      -- LSP Support
+      {'neovim/nvim-lspconfig'},             -- Required
+      {'williamboman/mason.nvim'},           -- Optional
+      {'williamboman/mason-lspconfig.nvim'}, -- Optional
+
+      -- Autocompletion
+      {'hrsh7th/nvim-cmp'},     -- Required
+      {'hrsh7th/cmp-nvim-lsp'}, -- Required
+      {'L3MON4D3/LuaSnip'},     -- Required
+  }
+}
 end)
