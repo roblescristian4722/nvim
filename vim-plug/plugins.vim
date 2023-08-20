@@ -49,9 +49,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
 
-    " Coc Jedi
-    " Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build', 'branch': 'main' }
-
     " Android development
     Plug 'hsanson/vim-android'
 
@@ -98,10 +95,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
     " Auto pairs for tags
     Plug 'alvan/vim-closetag'
-    
-    " Stable version of coc
-    " Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    
+
     " colorschemes
     Plug 'tomasiser/vim-code-dark'
     
