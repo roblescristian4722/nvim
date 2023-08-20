@@ -1,10 +1,19 @@
 " Defines the source file for pluggins
-source $HOME/.config/nvim/vim-plug/plugins.vim
-" coc configurations
-" source $HOME/.config/nvim/coc.vim
+source ~/.config/nvim/vim-plug/plugins.vim
 
-let g:polyglot_disabled = ['c', 'c++', 'c/c++', 'php', 'python']
+" coc configurations
+source ~/.config/nvim/coc.vim
+
 let g:lsp_cxx_hl_use_text_props = 1
+
+" Disables double $ for autocompletion in php files
+autocmd FileType php set iskeyword+=$
+
+" Set comment type depending on filetype
+autocmd FileType c,cpp,cs,java,js,jsx,php setlocal commentstring=//\ %s
+
+" Set tab length depending on filetype
+autocmd FileType javascript,javascriptreact,typescript,typescriptreact setlocal shiftwidth=2 tabstop=2 whichwrap
 
 " imported from $HOME/.vimrc
 syntax on
@@ -38,7 +47,6 @@ noremap  Y "+Y
 noremap  p "+p
 noremap  P "+P
 noremap  d "_d
-noremap  D "_D
 noremap  c "+C
 noremap  C "+C
 vnoremap y "+y
@@ -87,17 +95,6 @@ set smartcase   " ... unless they contain at least one capital letter
 "keep visual mode after indent
 vnoremap > >gv
 vnoremap < <gv
-
-" snippet using Alt
-let g:UltiSnipsExpandTrigger="<C-f>"
-let g:UltiSnipsJumpForwardTrigger="<C-j>"
-let g:UltiSnipsJumpBackwardTrigger="<C-d>"
-
-" Set comment type depending on filetype
-autocmd FileType c,cpp,cs,java,js,jsx,php setlocal commentstring=//\ %s
-
-" Set tab length depending on filetype
-autocmd FileType javascript,javascriptreact setlocal shiftwidth=2 tabstop=2
 
 " Smart way to move between panes
 map <C-s-up> <C-w><up>
@@ -177,36 +174,25 @@ function! LightlineFilename()
 endfunction
 
 " Move lines up and down - commands
-"noremap <silent> <C-s-up> :call <SID>swap_up()<CR>
-"noremap <silent> <C-s-down> :call <SID>swap_down()<CR>
 noremap <silent> <C-l> :call <SID>swap_up()<CR>
 noremap <silent> <C-k> :call <SID>swap_down()<CR>
 
-" Multiple cursor
-let g:multi_cursor_use_default_mapping = 0
-let g:multi_cursor_start_word_key      = '<C-i>'
-let g:multi_cursor_select_all_word_key = '<A-i>'
-let g:multi_cursor_start_key           = 'g<C-n>'
-let g:multi_cursor_select_all_key      = 'g<A-n>'
-let g:multi_cursor_next_key            = '<C-i>'
-let g:multi_cursor_prev_key            = '<C-z>'
-let g:multi_cursor_skip_key            = '<C-x>'
-let g:multi_cursor_quit_key            = '<Esc>'
-
 " Opens NERDTree
-map <C-o> :NERDTreeToggle<CR>
+map <silent><C-o> :NERDTreeToggle<CR>
 " Creates new tab
-map <C-n> :tabnew<CR>
-" Iterates over tabs
-map <C-p> :tabn<CR>
+map <silent><C-n> :tabnew<CR>
+" Next tab
+map <silent><C-p> :tabn<CR>
+" Prev tab
+map <silent>P :tabp<CR>
 " Splits window horizontally
-map <C-h> :sp<CR>
+map <silent><C-h> :sp<CR>
 " Splits window vertically
-map <C-v> :vsp<CR>
+map <silent><C-v> :vsp<CR>
 " Undo
-map <C-z> :undo<CR>
+map <silent><C-z> :undo<CR>
 " Redo
-map <C-y> :redo<CR>
+map <silent><C-y> :redo<CR>
 
 " Maps Alt-[j,k,l, ñ] to resizing a window split
 noremap <silent> <A-Up> :resize -2<CR>
@@ -225,6 +211,12 @@ noremap <silent> <C-S>          :update<CR>
 vnoremap <silent> <C-S>         <C-C>:update<CR>
 inoremap <silent> <C-S>         <C-O>:update<CR>
 
+" Multiple cursors
+let g:VM_maps = {}
+let g:VM_maps['Find Under']         = '<C-d>'           " replace C-n
+let g:VM_maps['Find Subword Under'] = '<C-d>'           " replace visual C-n
+let g:VM_maps["Switch Mode"]        = '<C-m>'
+
 " vscode theme
 set background=dark
 autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
@@ -242,3 +234,15 @@ function! OpenTerminal()
   resize 10
 endfunction
 nnoremap <c-t> :call OpenTerminal()<CR>
+
+" Snippets
+let g:UltiSnipsExpandTrigger       = '<c-p>'
+let g:UltiSnipsJumpForwardTrigger  = '<c-m>'
+let g:UltiSnipsJumpBackwardTrigger = '<c-n>'
+
+" Search in files using ripgrep
+nnoremap <silent> <C-f> :Rg <CR>
+
+" Highlight tiling spaces red
+highlight RedundantSpaces ctermbg=203 guibg=#ff5f5f
+match RedundantSpaces /\s\+$/
