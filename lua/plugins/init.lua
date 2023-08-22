@@ -95,6 +95,9 @@ return require('packer').startup(function(use)
       {'L3MON4D3/LuaSnip'},     -- Required
       {'hrsh7th/cmp-path'},
       {'hrsh7th/cmp-buffer'},
-  }
+  },
+
+  -- JDTLS
+  use 'mfussenegger/nvim-jdtls'
 }
 end)
