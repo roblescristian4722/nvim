@@ -1,3 +1,6 @@
+-- Close all buffers but the current one
+vim.keymap.set("n", "cl", "<cmd>%bd|e#<cr>", {desc="Close all buffers but the current one"})
+
 -- Smart way to move between panes
 vim.api.nvim_set_keymap( "n", "<C-s-up>", "<C-w><up>", {} )
 vim.api.nvim_set_keymap( "n", "<C-s-down>", "<C-w><down>", {} )
