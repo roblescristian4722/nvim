@@ -20,7 +20,7 @@ vim.cmd [[autocmd FileType php set iskeyword+=$]]
 vim.cmd [[autocmd FileType c,cpp,cs,java,js,jsx,php setlocal commentstring=//\ %s]]
 
 -- Set tab length depending on filetype
-vim.cmd [[autocmd FileType javascript,javascriptreact,typescript,typescriptreact,lua setlocal shiftwidth=2 tabstop=2]]
+vim.cmd [[autocmd FileType javascript,javascriptreact,typescript,typescriptreact,lua,xml,json setlocal shiftwidth=2 tabstop=2]]
 
 -- Transparency
 -- vim.cmd [[autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE]]

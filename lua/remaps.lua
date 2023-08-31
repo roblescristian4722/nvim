@@ -1,6 +1,23 @@
 -- Close all buffers but the current one
 vim.keymap.set("n", "cl", "<cmd>%bd|e#<cr>", {desc="Close all buffers but the current one"})
 
+
+-- Toggle all folds
+local foldKey = vim.keymap.set
+local foldSilent = { noremap = true, silent = true }
+foldKey('n', "<C-j>",
+    function()
+        local get_opt = vim.api.nvim_win_get_option
+        local set_opt = vim.api.nvim_win_set_option
+
+        if get_opt(0, "foldlevel") >= 20 then
+            set_opt(0, "foldlevel", 0)
+        else
+            set_opt(0, "foldlevel", 20)
+        end
+    end,
+foldSilent)
+
 -- Smart way to move between panes
 vim.api.nvim_set_keymap( "n", "<C-s-up>", "<C-w><up>", {} )
 vim.api.nvim_set_keymap( "n", "<C-s-down>", "<C-w><down>", {} )

@@ -1,17 +1,36 @@
-ftplugin/jdt/jdt-language-server-1.19.0-202301090450/config_linux/*
-!ftplugin/jdt/jdt-language-server-1.19.0-202301090450/config_linux/config.ini
+plugin/jdt/latest/config_linux/*
+!plugin/jdt/latest/config_linux/config.ini
 
-ftplugin/jdt/jdt-language-server-1.19.0-202301090450/config_mac/*
-!ftplugin/jdt/jdt-language-server-1.19.0-202301090450/config_mac/config.ini
+plugin/jdt/latest/config_mac/*
+!plugin/jdt/latest/config_mac/config.ini
 
-ftplugin/jdt/jdt-language-server-1.19.0-202301090450/config_ss_linux/*
-!ftplugin/jdt/jdt-language-server-1.19.0-202301090450/config_ss_linux/config.ini
+plugin/jdt/latest/config_ss_linux/*
+!plugin/jdt/latest/config_ss_linux/config.ini
 
-ftplugin/jdt/jdt-language-server-1.19.0-202301090450/config_ss_mac/*
-!ftplugin/jdt/jdt-language-server-1.19.0-202301090450/config_ss_mac/config.ini
+plugin/jdt/latest/config_ss_mac/*
+!plugin/jdt/latest/config_ss_mac/config.ini
 
-ftplugin/jdt/jdt-language-server-1.19.0-202301090450/config_ss_win/*
-!ftplugin/jdt/jdt-language-server-1.19.0-202301090450/config_ss_win/config.ini
+plugin/jdt/latest/config_ss_win/*
+!plugin/jdt/latest/config_ss_win/config.ini
 
-ftplugin/jdt/jdt-language-server-1.19.0-202301090450/config_win/*
-!ftplugin/jdt/jdt-language-server-1.19.0-202301090450/config_win/config.ini
+plugin/jdt/latest/config_win/*
+!plugin/jdt/latest/config_win/config.ini
+
+
+plugin/jdt/jdt-language-server-1.19.0-202301090450/config_linux/*
+!plugin/jdt/jdt-language-server-1.19.0-202301090450/config_linux/config.ini
+
+plugin/jdt/jdt-language-server-1.19.0-202301090450/config_mac/*
+!plugin/jdt/jdt-language-server-1.19.0-202301090450/config_mac/config.ini
+
+plugin/jdt/jdt-language-server-1.19.0-202301090450/config_ss_linux/*
+!plugin/jdt/jdt-language-server-1.19.0-202301090450/config_ss_linux/config.ini
+
+plugin/jdt/jdt-language-server-1.19.0-202301090450/config_ss_mac/*
+!plugin/jdt/jdt-language-server-1.19.0-202301090450/config_ss_mac/config.ini
+
+plugin/jdt/jdt-language-server-1.19.0-202301090450/config_ss_win/*
+!plugin/jdt/jdt-language-server-1.19.0-202301090450/config_ss_win/config.ini
+
+plugin/jdt/jdt-language-server-1.19.0-202301090450/config_win/*
+!plugin/jdt/jdt-language-server-1.19.0-202301090450/config_win/config.ini

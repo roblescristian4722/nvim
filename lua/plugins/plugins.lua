@@ -1,11 +1,3 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
-require("plugins.treesitter")
-require("plugins.undotree")
-require("plugins.telescope")
-require("plugins.lsp")
-require("plugins.mason")
--- require("plugins.nvim-cmp")
-
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
@@ -81,24 +73,23 @@ return require('packer').startup(function(use)
     requires = { {'nvim-lua/plenary.nvim'} }
   }
 
-  use {
-    'VonHeikemen/lsp-zero.nvim',
-    branch = 'v2.x',
-    requires = {
-      -- LSP Support
-      {'neovim/nvim-lspconfig'},             -- Required
-      {'williamboman/mason.nvim'},           -- Optional
-      {'williamboman/mason-lspconfig.nvim'}, -- Optional
+  -- LSP Support
+  use 'neovim/nvim-lspconfig'             -- Required
+  use 'williamboman/mason.nvim'           -- Optional
+  use 'williamboman/mason-lspconfig.nvim' -- Optional
 
-      -- Autocompletion
-      {'hrsh7th/nvim-cmp'},     -- Required
-      {'hrsh7th/cmp-nvim-lsp'}, -- Required
-      {'L3MON4D3/LuaSnip'},     -- Required
-      {'hrsh7th/cmp-path'},
-      {'hrsh7th/cmp-buffer'},
-      {'mfussenegger/nvim-dap'},
-      {'rcarriga/nvim-dap-ui'},
-      {'mfussenegger/nvim-jdtls'}
-  },
-}
+  -- For vsnip users.
+  use 'hrsh7th/cmp-vsnip'
+  use 'hrsh7th/vim-vsnip'
+
+  -- Autocompletion
+  use 'hrsh7th/nvim-cmp'     -- Required
+  use 'hrsh7th/cmp-nvim-lsp' -- Required
+  use 'L3MON4D3/LuaSnip'     -- Required
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-buffer'
+
+  
+  -- JDTLS
+  use 'mfussenegger/nvim-jdtls'
 end)
