@@ -1,5 +1,4 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
-
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -140,7 +139,7 @@ require("plugins.treesitter")
 require("plugins.undotree")
 require("plugins.telescope")
 require("plugins.lsp")
-require("plugins.mason")
+require("plugins.mason-lspconfig")
 require("plugins.nvimtree")
 require("plugins.lualine")
 require("plugins.gitgutter")
