@@ -1,86 +1,79 @@
-local ensure_packer = function()
-  local fn = vim.fn
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-  if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-    vim.cmd [[packadd packer.nvim]]
-    return true
-  end
-  return false
+-- This file can be loaded by calling `lua require('plugins')` from your init.vim
+
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
 
-local packer_bootstrap = ensure_packer()
-
-local packer = require('packer').startup(function(use)
-  -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
-
+local plugins = {
   -- Colorscheme (vscode clone)
-  use 'tomasiser/vim-code-dark'
+  'tomasiser/vim-code-dark',
 
   -- Hydra
-  use 'anuvyklack/hydra.nvim'
+  'anuvyklack/hydra.nvim',
 
   -- Treesitter
-  use (
+  {
     'nvim-treesitter/nvim-treesitter',
-    { run = ':TSUpdate' }
-  )
+    build = ':TSUpdate'
+  },
 
   -- Multiple cursors
-  use 'smoka7/multicursors.nvim'
+  'smoka7/multicursors.nvim',
 
   -- Auto pairs for '(' '[' '{'
-  use 'jiangmiao/auto-pairs'
+  'jiangmiao/auto-pairs',
 
   -- Auto pairs for tags
-  use 'alvan/vim-closetag'
+  'alvan/vim-closetag',
 
   -- Comments usgin "gc" command
-  use 'tpope/vim-commentary'
+  'tpope/vim-commentary',
 
   -- Moving splitted windows
-  use 'wesQ3/vim-windowswap'
-
-  -- FZF
-  use (
-    'junegunn/fzf',
-    { run = 'fzf#install()' }
-  )
-  use 'junegunn/fzf.vim'
+  'wesQ3/vim-windowswap',
 
   -- Snippets
-  use 'SirVer/ultisnips'
+  'SirVer/ultisnips',
 
   -- Default snippets
-  use 'honza/vim-snippets'
+  'honza/vim-snippets',
 
   -- React/JS/Typescript snippets
-  use 'mlaursen/vim-react-snippets'
+  'mlaursen/vim-react-snippets',
 
   -- Surround
-  use 'tpope/vim-surround'
+  'tpope/vim-surround',
 
   -- Icons
-  use 'ryanoasis/vim-devicons'
+  'ryanoasis/vim-devicons',
 
   -- Shows indentation levels
-  use 'Yggdroot/indentLine'
+  'Yggdroot/indentLine',
 
   -- Undotree
-  use 'mbbill/undotree'
+  'mbbill/undotree',
 
   -- Telescope (file finder)
-  use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.2',
+  {
+    'nvim-telescope/telescope.nvim',
+    version = '0.1.2',
     -- or                            , branch = '0.1.x',
-    requires = { {'nvim-lua/plenary.nvim'} }
-  }
+    dependencies = { {'nvim-lua/plenary.nvim'} }
+  },
 
-  use {
+  {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v2.x',
-    requires = {
+    dependencies = {
       -- LSP Support
       {'neovim/nvim-lspconfig'},             -- Required
       {'williamboman/mason.nvim'},           -- Optional
@@ -95,29 +88,30 @@ local packer = require('packer').startup(function(use)
       {'mfussenegger/nvim-dap'},
       {'rcarriga/nvim-dap-ui'},
       {'mfussenegger/nvim-jdtls'}
+    }
   },
 
   -- Nvim Tree (file browser)
-  use {
+  {
     'nvim-tree/nvim-tree.lua',
-    requires = {
+    dependencies = {
       {'nvim-tree/nvim-web-devicons'}
     }
   },
 
   -- Statusline
-  use {
+  {
     'nvim-lualine/lualine.nvim',
-    requires = { 'nvim-tree/nvim-web-devicons', opt = true },
+    dependencies = { 'nvim-tree/nvim-web-devicons', opt = true },
   },
 
   -- Gitutter
-  use 'lewis6991/gitsigns.nvim',
+  'lewis6991/gitsigns.nvim',
 
   -- Cheatsheet
-  use {
+  {
     'sudormrfbin/cheatsheet.nvim',
-    requires = {
+    dependencies = {
       {'nvim-telescope/telescope.nvim'},
       {'nvim-lua/popup.nvim'},
       {'nvim-lua/plenary.nvim'},
@@ -125,22 +119,23 @@ local packer = require('packer').startup(function(use)
   },
 
   -- Bufferline
-  use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'},
+  {
+    'akinsho/bufferline.nvim',
+    version = "*",
+    dependencies = 'nvim-tree/nvim-web-devicons'
+  },
 
   -- Terminal toggler
-  use {
-    "akinsho/toggleterm.nvim", tag = '*', config = function()
+  {
+    "akinsho/toggleterm.nvim", version = '*', config = function()
       require("toggleterm").setup()
     end
   },
 }
 
-  if packer_bootstrap then
-    require('packer').sync()
-  end
-end)
+local opts = {}
 
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
+require("lazy").setup(plugins, opts)
 require("plugins.treesitter")
 require("plugins.undotree")
 require("plugins.telescope")
@@ -150,5 +145,3 @@ require("plugins.nvimtree")
 require("plugins.lualine")
 require("plugins.gitgutter")
 require("plugins.bufferline")
-
-return packer
