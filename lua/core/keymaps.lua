@@ -54,10 +54,6 @@ vim.api.nvim_set_keymap( "v", "k", "j", { noremap = true } )
 vim.api.nvim_set_keymap( "v", "l", "k", { noremap = true } )
 vim.api.nvim_set_keymap( "v", "ñ", "l", { noremap = true } )
 
--- Opens NERDTree
-vim.api.nvim_set_keymap( "n", "<C-o>", ":NERDTreeToggle<CR>", { noremap = true } )
-vim.api.nvim_set_keymap( "v", "<C-o>", ":NERDTreeToggle<CR>", { noremap = true } )
-
 -- Creates new tab
 vim.api.nvim_set_keymap( "n", "<C-n>", ":tabnew<CR>", { noremap = true } )
 vim.api.nvim_set_keymap( "v", "<C-n>", ":tabnew<CR>", { noremap = true } )
@@ -65,8 +61,10 @@ vim.api.nvim_set_keymap( "v", "<C-n>", ":tabnew<CR>", { noremap = true } )
 -- Iterates over tabs
 vim.api.nvim_set_keymap( "n", "<C-p>", ":tabn<CR>", { noremap = true } )
 vim.api.nvim_set_keymap( "v", "<C-p>", ":tabn<CR>", { noremap = true } )
-vim.api.nvim_set_keymap( "n", "<C-S-P>", ":tabprevious<CR>", { noremap = true } )
-vim.api.nvim_set_keymap( "v", "<C-S-P>", ":tabprevious<CR>", { noremap = true } )
+vim.api.nvim_set_keymap( "n", "<C-PageUp>", ":tabn<CR>", { noremap = true } )
+vim.api.nvim_set_keymap( "v", "<C-PageUp>", ":tabn<CR>", { noremap = true } )
+vim.api.nvim_set_keymap( "n", "<C-PageDown>", ":tabp<CR>", { noremap = true } )
+vim.api.nvim_set_keymap( "v", "<PC-ageDown>", ":tabp<CR>", { noremap = true } )
 
 -- Splits window horizontally
 vim.api.nvim_set_keymap( "n", "<C-h>", ":sp<CR>", { noremap = true } )

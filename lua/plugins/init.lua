@@ -4,7 +4,9 @@ require("plugins.undotree")
 require("plugins.telescope")
 require("plugins.lsp")
 require("plugins.mason")
--- require("plugins.nvim-cmp")
+require("plugins.nvimtree")
+require("plugins.lualine")
+require("plugins.gitgutter")
 
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
@@ -13,14 +15,8 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
-  -- Vim Airline (status bar)
-  use 'vim-airline/vim-airline'
-
   -- Colorscheme (vscode clone)
   use 'tomasiser/vim-code-dark'
-
-  -- NERD Tree
-  use 'scrooloose/NERDTree'
 
   -- Hydra
   use 'anuvyklack/hydra.nvim'
@@ -100,5 +96,22 @@ return require('packer').startup(function(use)
       {'rcarriga/nvim-dap-ui'},
       {'mfussenegger/nvim-jdtls'}
   },
+
+  -- Nvim Tree (file browser)
+  use {
+    'nvim-tree/nvim-tree.lua',
+    requires = {
+      {'nvim-tree/nvim-web-devicons'}
+    }
+  },
+
+  -- Statusline
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true },
+  },
+
+  -- Gitutter
+  use 'lewis6991/gitsigns.nvim'
 }
 end)

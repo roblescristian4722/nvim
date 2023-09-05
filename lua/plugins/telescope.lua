@@ -1,7 +1,13 @@
 require('telescope').setup{
   defaults = {
-    -- Default configuration for telescope goes here:
-    -- config_key = value,
+    vimgrep_arguments = {
+      'rg',
+      '--with-filename',
+      '--line-number',
+      '--column',
+      '--smart-case',
+      '--hidden',
+    },
     mappings = {
       i = {
         -- map actions.which_key to <C-h> (default: <C-/>)
@@ -26,7 +32,7 @@ require('telescope').setup{
     --   extension_config_key = value,
     -- }
     -- please take a look at the readme of the extension you want to configure
-  }
+  },
 }
 
 local builtin = require('telescope.builtin')

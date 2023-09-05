@@ -1,0 +1,5 @@
+require("core.g")
+require("core.cmd")
+require("core.env")
+require("core.keymaps")
+require("core.functions")
