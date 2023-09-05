@@ -5,8 +5,9 @@ local root_files = {
   '.git',
   'mvnw',
   'gradlew',
-  'pom.xml',
-  'build.gradle',
+  -- 'pom.xml',
+  -- 'build.gradle',
+  -- 'build.xml',
 }
 
 local features = {
@@ -79,10 +80,10 @@ local function get_jdtls_paths()
     -- https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
     --
     -- This example assume you are using sdkman: https://sdkman.io
-    -- {
-    --   name = 'JavaSE-17',
-    --   path = vim.fn.expand('~/.sdkman/candidates/java/17.0.6-tem'),
-    -- },
+    {
+      name = 'JavaSE-17',
+      path = '/usr/java/jdk-17',
+    },
     -- {
     --   name = 'JavaSE-18',
     --   path = vim.fn.expand('~/.sdkman/candidates/java/18.0.2-amzn'),

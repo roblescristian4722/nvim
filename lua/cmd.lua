@@ -22,5 +22,13 @@ vim.cmd [[autocmd FileType c,cpp,cs,java,js,jsx,php setlocal commentstring=//\ %
 -- Set tab length depending on filetype
 vim.cmd [[autocmd FileType javascript,javascriptreact,typescript,typescriptreact,lua,xml,json setlocal shiftwidth=2 tabstop=2]]
 
+
+-- Highlight tiling spaces red
+vim.cmd [[ highlight RedundantSpaces ctermbg=203 guibg=#ff5f5f ]]
+vim.cmd [[ match RedundantSpaces /\s\+$/ ]]
+
+-- Show indentation spaces as dots
+vim.cmd [[ set lcs+=space:· ]]
+
 -- Transparency
 -- vim.cmd [[autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE]]

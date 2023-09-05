@@ -65,6 +65,8 @@ vim.api.nvim_set_keymap( "v", "<C-n>", ":tabnew<CR>", { noremap = true } )
 -- Iterates over tabs
 vim.api.nvim_set_keymap( "n", "<C-p>", ":tabn<CR>", { noremap = true } )
 vim.api.nvim_set_keymap( "v", "<C-p>", ":tabn<CR>", { noremap = true } )
+vim.api.nvim_set_keymap( "n", "<C-S-P>", ":tabprevious<CR>", { noremap = true } )
+vim.api.nvim_set_keymap( "v", "<C-S-P>", ":tabprevious<CR>", { noremap = true } )
 
 -- Splits window horizontally
 vim.api.nvim_set_keymap( "n", "<C-h>", ":sp<CR>", { noremap = true } )

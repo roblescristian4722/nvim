@@ -38,3 +38,6 @@ vim.opt.background = "dark"
 -- Open new split panes at right and below
 vim.opt.splitright = true
 vim.opt.splitbelow = true
+
+-- Show whitespaces
+vim.opt.list = true
