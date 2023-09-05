@@ -7,6 +7,7 @@ require("plugins.mason")
 require("plugins.nvimtree")
 require("plugins.lualine")
 require("plugins.gitgutter")
+require("plugins.bufferline")
 
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
@@ -112,6 +113,27 @@ return require('packer').startup(function(use)
   },
 
   -- Gitutter
-  use 'lewis6991/gitsigns.nvim'
+  use 'lewis6991/gitsigns.nvim',
+
+  -- Cheatsheet
+  use {
+    'sudormrfbin/cheatsheet.nvim',
+    requires = {
+      {'nvim-telescope/telescope.nvim'},
+      {'nvim-lua/popup.nvim'},
+      {'nvim-lua/plenary.nvim'},
+    }
+  },
+
+  -- Bufferline
+  use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'},
+
+  -- Terminal toggler
+  use {
+    "akinsho/toggleterm.nvim", tag = '*', config = function()
+      require("toggleterm").setup()
+    end
+  },
+
 }
 end)
