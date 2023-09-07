@@ -1,8 +1,8 @@
-require('gitsigns').setup {
+  require('gitsigns').setup {
   signs = {
-    add          = { text = '│' },
+    add          = { text = '+' },
     change       = { text = '│' },
-    delete       = { text = '_' },
+    delete       = { text = '-' },
     topdelete    = { text = '‾' },
     changedelete = { text = '~' },
     untracked    = { text = '┆' },
@@ -38,4 +38,44 @@ require('gitsigns').setup {
   yadm = {
     enable = false
   },
+  on_attach = function(bufnr)
+    local gs = package.loaded.gitsigns
+
+    local function map(mode, l, r, opts)
+      opts = opts or {}
+      opts.buffer = bufnr
+      vim.keymap.set(mode, l, r, opts)
+    end
+
+    -- Navigation
+    map('n', ']c', function()
+      if vim.wo.diff then return ']c' end
+      vim.schedule(function() gs.next_hunk() end)
+      return '<Ignore>'
+    end, {expr=true})
+
+    map('n', '[c', function()
+      if vim.wo.diff then return '[c' end
+      vim.schedule(function() gs.prev_hunk() end)
+      return '<Ignore>'
+    end, {expr=true})
+
+    -- Actions
+    -- map('n', '<C-a>', gs.stage_hunk)
+    -- map('n', '<C-u>', gs.reset_hunk)
+    -- map('v', '<C-a>', function() gs.stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
+    -- map('v', '<C-u', function() gs.reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
+    map('n', '<C-a>', gs.stage_buffer)
+    map('n', '<C-u>', gs.undo_stage_hunk)
+    map('n', '<C-r>', gs.reset_buffer)
+    map('n', '<C-d>', gs.preview_hunk)
+    map('n', 'gb', function() gs.blame_line{full=true} end)
+    map('n', 'gB', gs.toggle_current_line_blame)
+    map('n', 'gD', gs.diffthis)
+    map('n', 'gd', function() gs.diffthis('~') end)
+    map('n', 'gt', gs.toggle_deleted)
+
+    -- Text object
+    map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+  end
 }

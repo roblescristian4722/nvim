@@ -104,7 +104,7 @@ local plugins = {
     dependencies = { 'nvim-tree/nvim-web-devicons', opt = true },
   },
 
-  -- Gitutter
+  -- Gitsigns
   'lewis6991/gitsigns.nvim',
 
   -- Cheatsheet
@@ -126,9 +126,9 @@ local plugins = {
 
   -- Terminal toggler
   {
-    "akinsho/toggleterm.nvim", version = '*', config = function()
-      require("toggleterm").setup()
-    end
+    'akinsho/toggleterm.nvim',
+    version = "*",
+    config = true
   },
 }
 
@@ -144,3 +144,4 @@ require("plugins.nvimtree")
 require("plugins.lualine")
 require("plugins.gitgutter")
 require("plugins.bufferline")
+require("plugins.terminal")
