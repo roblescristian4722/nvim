@@ -66,7 +66,7 @@
     -- map('v', '<C-a>', function() gs.stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
     -- map('v', '<C-u', function() gs.reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
     map('n', '<C-a>', gs.stage_buffer)
-    map('n', '<C-u>', gs.undo_stage_hunk)
+    map('n', 'gu', gs.undo_stage_hunk)
     map('n', '<C-r>', gs.reset_buffer)
     map('n', '<C-d>', gs.preview_hunk)
     map('n', 'gb', function() gs.blame_line{full=true} end)

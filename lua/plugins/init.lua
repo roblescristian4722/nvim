@@ -29,7 +29,11 @@ local plugins = {
   'smoka7/multicursors.nvim',
 
   -- Auto pairs for '(' '[' '{'
-  'jiangmiao/auto-pairs',
+  {
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    opts = {}
+  },
 
   -- Auto pairs for tags
   'alvan/vim-closetag',
