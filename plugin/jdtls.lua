@@ -80,10 +80,10 @@ local function get_jdtls_paths()
     -- https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
     --
     -- This example assume you are using sdkman: https://sdkman.io
-    {
-      name = 'JavaSE-17',
-      path = '/usr/java/jdk-17',
-    },
+    -- {
+    --   name = 'JavaSE-17',
+    --   path = '/usr/java/jdk-17',
+    -- },
     -- {
     --   name = 'JavaSE-18',
     --   path = vim.fn.expand('~/.sdkman/candidates/java/18.0.2-amzn'),
@@ -155,12 +155,20 @@ local function jdtls_setup(event)
     )
   end
 
+  local java_path = ""
+  local handle = io.popen("echo $( whereis java | tr ' ' '\n' | grep 17 )")
+  if handle ~= nil then
+    java_path = handle:read("*a")
+    handle:close()
+  end
+
+  local java_path_trimmed = java_path:gsub("\n[^\n]*$", "")
+
   -- The command that starts the language server
   -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
   local cmd = {
     -- 💀
-    '/usr/lib/jvm/java-17-openjdk/bin/java',
-
+    java_path_trimmed,
     '-Declipse.application=org.eclipse.jdt.ls.core.id1',
     '-Dosgi.bundles.defaultStartLevel=4',
     '-Declipse.product=org.eclipse.jdt.ls.core.product',
