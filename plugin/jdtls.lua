@@ -5,9 +5,9 @@ local root_files = {
   '.git',
   'mvnw',
   'gradlew',
-  'pom.xml',
-  'build.gradle',
-  'build.xml',
+  -- 'pom.xml',
+  -- 'build.gradle',
+  -- 'build.xml',
 }
 
 local features = {
