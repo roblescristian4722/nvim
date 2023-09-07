@@ -159,7 +159,7 @@ local function jdtls_setup(event)
   -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
   local cmd = {
     -- 💀
-    '/usr/java/jdk-17/bin/java',
+    '/usr/lib/jvm/java-17-openjdk/bin/java',
 
     '-Declipse.application=org.eclipse.jdt.ls.core.id1',
     '-Dosgi.bundles.defaultStartLevel=4',

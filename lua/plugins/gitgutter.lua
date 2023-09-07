@@ -71,8 +71,8 @@
     map('n', '<C-d>', gs.preview_hunk)
     map('n', 'gb', function() gs.blame_line{full=true} end)
     map('n', 'gB', gs.toggle_current_line_blame)
-    map('n', 'gD', gs.diffthis)
-    map('n', 'gd', function() gs.diffthis('~') end)
+    map('n', 'D', gs.diffthis)
+    -- map('n', 'gd', function() gs.diffthis('~') end)
     map('n', 'gt', gs.toggle_deleted)
 
     -- Text object
