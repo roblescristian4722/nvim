@@ -66,6 +66,9 @@ cmp.setup({
         Module = '',
         Reference = '󱈇',
         Constructor = '󰣪',
+        Enum = '',
+        Array = '',
+        List = ''
       }
 
       item.menu = ( icons[item.kind] or '' ) .. ' '

@@ -132,8 +132,11 @@ local plugins = {
   {
     'akinsho/toggleterm.nvim',
     version = "*",
-    config = true
+    config = true,
   },
+
+  -- Symbols outline
+  'simrat39/symbols-outline.nvim',
 }
 
 local opts = {}
@@ -149,3 +152,4 @@ require("plugins.lualine")
 require("plugins.gitgutter")
 require("plugins.bufferline")
 require("plugins.terminal")
+require("plugins.symbols-outline")
