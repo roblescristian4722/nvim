@@ -1,5 +1,5 @@
 -- Close all buffers but the current one
-vim.keymap.set("n", "cl", "<cmd>%bd|e#<cr>", {desc="Close all buffers but the current one"})
+vim.keymap.set("n", "CL", "<cmd>%bd|e#<cr>", {desc="Close all buffers but the current one"})
 
 
 -- Toggle all folds

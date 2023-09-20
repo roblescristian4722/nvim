@@ -66,12 +66,12 @@ local plugins = {
   'mbbill/undotree',
 
   -- Telescope (file finder)
-  {
-    'nvim-telescope/telescope.nvim',
-    version = '0.1.2',
-    -- or                            , branch = '0.1.x',
-    dependencies = { {'nvim-lua/plenary.nvim'} }
-  },
+  -- {
+  --   'nvim-telescope/telescope.nvim',
+  --   version = '0.1.2',
+  --   -- or                            , branch = '0.1.x',
+  --   dependencies = { {'nvim-lua/plenary.nvim'} }
+  -- },
 
   {
     'VonHeikemen/lsp-zero.nvim',
@@ -137,6 +137,17 @@ local plugins = {
 
   -- Symbols outline
   'simrat39/symbols-outline.nvim',
+
+  -- FZF
+  {
+    "ibhagwan/fzf-lua",
+    -- optional for icon support
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    -- config = function()
+    --   -- calling `setup` is optional for customization
+    --   require("fzf-lua").setup({})
+    -- end
+  }
 }
 
 local opts = {}
@@ -144,7 +155,8 @@ local opts = {}
 require("lazy").setup(plugins, opts)
 require("plugins.treesitter")
 require("plugins.undotree")
-require("plugins.telescope")
+require("plugins.fzf")
+-- require("plugins.telescope")
 require("plugins.lsp-zero")
 require("plugins.mason-lspconfig")
 require("plugins.nvimtree")

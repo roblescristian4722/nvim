@@ -41,3 +41,6 @@ vim.opt.splitbelow = true
 
 -- Show whitespaces
 vim.opt.list = true
+
+-- Autoreload file
+vim.opt.autoread = true

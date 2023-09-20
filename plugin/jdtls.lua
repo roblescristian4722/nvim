@@ -5,9 +5,9 @@ local root_files = {
   '.git',
   'mvnw',
   'gradlew',
-  -- 'pom.xml',
-  -- 'build.gradle',
-  -- 'build.xml',
+  'pom.xml',
+  'build.gradle',
+  'build.xml',
 }
 
 local features = {
@@ -156,10 +156,17 @@ local function jdtls_setup(event)
   end
 
   local java_path = ""
-  local handle = io.popen("echo $( whereis java | tr ' ' '\n' | grep 17 )")
+  local handle = io.popen("echo $( whereis java | tr ' ' '\n' | grep 20 )")
   if handle ~= nil then
     java_path = handle:read("*a")
     handle:close()
+  end
+  if string.len(java_path) == 0 then
+    handle = io.popen("echo $( whereis java | tr ' ' '\n' | grep 17 )")
+    if handle ~= nil then
+      java_path = handle:read("*a")
+      handle:close()
+    end
   end
 
   local java_path_trimmed = java_path:gsub("\n[^\n]*$", "")
@@ -168,7 +175,7 @@ local function jdtls_setup(event)
   -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
   local cmd = {
     -- 💀
-    java_path_trimmed,
+    '/usr/java/jdk-17/bin/java',
     '-Declipse.application=org.eclipse.jdt.ls.core.id1',
     '-Dosgi.bundles.defaultStartLevel=4',
     '-Declipse.product=org.eclipse.jdt.ls.core.product',
@@ -176,22 +183,21 @@ local function jdtls_setup(event)
     '-Dlog.level=ALL',
     '-Xms1g',
     '--add-modules=ALL-SYSTEM',
-    '--add-opens',
-    'java.base/java.util=ALL-UNNAMED',
-    '--add-opens',
-    'java.base/java.lang=ALL-UNNAMED',
-    
-    -- 💀
-    '-jar',
-    path.launcher_jar,
+    '--add-opens', 'java.base/java.util=ALL-UNNAMED',
+    '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
 
     -- 💀
-    '-configuration',
-    path.platform_config,
+    '-jar', path.launcher_jar,
+
+    '-javaagent:/scratch/lombok.jar',
+    '-Xbootclasspath/a:/scratch/lombok.jar',
+
 
     -- 💀
-    '-data',
-    data_dir,
+    '-configuration', path.platform_config,
+
+    -- 💀
+    '-data', data_dir,
   }
 
   local lsp_settings = {
