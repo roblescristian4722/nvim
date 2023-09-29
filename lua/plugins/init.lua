@@ -20,10 +20,10 @@ local plugins = {
   'anuvyklack/hydra.nvim',
 
   -- Treesitter
-  {
-    'nvim-treesitter/nvim-treesitter',
-    build = ':TSUpdate'
-  },
+  -- {
+  --   'nvim-treesitter/nvim-treesitter',
+  --   build = ':TSUpdate'
+  -- },
 
   -- Multiple cursors
   'smoka7/multicursors.nvim',
@@ -44,15 +44,6 @@ local plugins = {
   -- Moving splitted windows
   'wesQ3/vim-windowswap',
 
-  -- Snippets
-  'SirVer/ultisnips',
-
-  -- Default snippets
-  'honza/vim-snippets',
-
-  -- React/JS/Typescript snippets
-  'mlaursen/vim-react-snippets',
-
   -- Surround
   'tpope/vim-surround',
 
@@ -65,42 +56,35 @@ local plugins = {
   -- Undotree
   'mbbill/undotree',
 
-  -- Telescope (file finder)
-  -- {
-  --   'nvim-telescope/telescope.nvim',
-  --   version = '0.1.2',
-  --   -- or                            , branch = '0.1.x',
-  --   dependencies = { {'nvim-lua/plenary.nvim'} }
-  -- },
-
   {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v2.x',
     dependencies = {
       -- LSP Support
-      {'neovim/nvim-lspconfig'},             -- Required
-      {'williamboman/mason.nvim'},           -- Optional
-      {'williamboman/mason-lspconfig.nvim'}, -- Optional
+      { 'neovim/nvim-lspconfig' },           -- Required
+      { 'williamboman/mason.nvim' },         -- Optional
+      { 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
       -- Autocompletion
-      {'hrsh7th/nvim-cmp'},     -- Required
-      {'hrsh7th/cmp-nvim-lsp'}, -- Required
-      {'L3MON4D3/LuaSnip'},     -- Required
-      {'hrsh7th/cmp-path'},
-      {'hrsh7th/cmp-buffer'},
-      {'mfussenegger/nvim-dap'},
-      {'rcarriga/nvim-dap-ui'},
-      {'mfussenegger/nvim-jdtls'}
+      { 'hrsh7th/nvim-cmp' },   -- Required
+      { 'hrsh7th/cmp-nvim-lsp' }, -- Required
+      { 'L3MON4D3/LuaSnip' },   -- Required
+      { 'hrsh7th/cmp-path' },
+      { 'hrsh7th/cmp-buffer' },
+      { 'rcarriga/cmp-dap' },
+      { 'mfussenegger/nvim-dap' },
+      { 'rcarriga/nvim-dap-ui' },
+      { 'mfussenegger/nvim-jdtls' }
     }
   },
 
   -- Nvim Tree (file browser)
-  {
-    'nvim-tree/nvim-tree.lua',
-    dependencies = {
-      {'nvim-tree/nvim-web-devicons'}
-    }
-  },
+  -- {
+  --   'nvim-tree/nvim-tree.lua',
+  --   dependencies = {
+  --     { 'nvim-tree/nvim-web-devicons' }
+  --   }
+  -- },
 
   -- Statusline
   {
@@ -115,9 +99,9 @@ local plugins = {
   {
     'sudormrfbin/cheatsheet.nvim',
     dependencies = {
-      {'nvim-telescope/telescope.nvim'},
-      {'nvim-lua/popup.nvim'},
-      {'nvim-lua/plenary.nvim'},
+      { 'nvim-telescope/telescope.nvim' },
+      { 'nvim-lua/popup.nvim' },
+      { 'nvim-lua/plenary.nvim' },
     }
   },
 
@@ -147,19 +131,30 @@ local plugins = {
     --   -- calling `setup` is optional for customization
     --   require("fzf-lua").setup({})
     -- end
-  }
+  },
+
+  -- DAP (Debugger)
+  {
+    "williamboman/mason.nvim",
+    "mfussenegger/nvim-dap",
+    "jay-babu/mason-nvim-dap.nvim",
+  },
+
+  -- Startup time (TODO: delete)
+  'dstein64/vim-startuptime'
 }
 
 local opts = {}
 
 require("lazy").setup(plugins, opts)
-require("plugins.treesitter")
+-- require("plugins.treesitter")
 require("plugins.undotree")
 require("plugins.fzf")
--- require("plugins.telescope")
 require("plugins.lsp-zero")
 require("plugins.mason-lspconfig")
-require("plugins.nvimtree")
+require("plugins.mason_nvim_dap")
+require("plugins.dap")
+-- require("plugins.nvimtree")
 require("plugins.lualine")
 require("plugins.gitgutter")
 require("plugins.bufferline")

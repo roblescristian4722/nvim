@@ -1,7 +1,6 @@
 -- Close all buffers but the current one
 vim.keymap.set("n", "CL", "<cmd>%bd|e#<cr>", {desc="Close all buffers but the current one"})
 
-
 -- Toggle all folds
 local foldKey = vim.keymap.set
 local foldSilent = { noremap = true, silent = true }
@@ -86,6 +85,9 @@ vim.api.nvim_set_keymap( "v", "<C-y>", ":redo<CR>", { noremap = true } )
 vim.api.nvim_set_keymap( "n", "<C-s>", ":update<CR>", { noremap = true } )
 vim.api.nvim_set_keymap( "v", "<C-s>", "<C-C>:update<CR>", { noremap = true } )
 vim.api.nvim_set_keymap( "i", "<C-s>", "<C-O>:update<CR>", { noremap = true } )
+
+-- Save changes using sudo
+vim.api.nvim_set_keymap('c', 'w!!', "<esc>:lua require('core.utils').sudo_write()<CR>", { silent = true })
 
 -- Maps Alt-[j,k,l, ñ] to resizing a window split
 vim.api.nvim_set_keymap( "n", "<A-Up>", ":resize -2<CR>", { noremap = true } )
