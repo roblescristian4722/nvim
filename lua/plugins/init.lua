@@ -16,23 +16,53 @@ local plugins = {
   -- Colorscheme (vscode clone)
   'tomasiser/vim-code-dark',
 
-  -- Hydra
-  'anuvyklack/hydra.nvim',
-
   -- Treesitter
-  -- {
-  --   'nvim-treesitter/nvim-treesitter',
-  --   build = ':TSUpdate'
-  -- },
+  {
+    'nvim-treesitter/nvim-treesitter',
+    build = ':TSUpdate'
+  },
 
-  -- Multiple cursors
-  'smoka7/multicursors.nvim',
+  -- indent-blankline
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    opts = {},
+    dependencies = {
+      { "HiPhish/rainbow-delimiters.nvim" },
+    }
+  },
 
-  -- Auto pairs for '(' '[' '{'
   {
     'windwp/nvim-autopairs',
     event = "InsertEnter",
     opts = {}
+  },
+
+  -- Multiple cursors
+  -- lazy.nvim:
+  {
+    "smoka7/multicursors.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      'smoka7/hydra.nvim',
+    },
+    opts = {},
+    cmd = {
+      'MCstart',
+      'MCvisual',
+      'MCclear',
+      'MCpattern',
+      'MCvisualPattern',
+      'MCunderCursor'
+    },
+    keys = {
+      {
+        mode = { 'v', 'n' },
+        '<Leader>m',
+        '<cmd>MCstart<cr>',
+        desc = 'Create a selection for selected text or word under the cursor',
+      },
+    },
   },
 
   -- Auto pairs for tags
@@ -53,22 +83,25 @@ local plugins = {
   -- Shows indentation levels
   'Yggdroot/indentLine',
 
-  -- Undotree
-  'mbbill/undotree',
+  -- nvim-lualine (lightweight lua statusline)
+  {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  },
 
   {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v2.x',
     dependencies = {
       -- LSP Support
-      { 'neovim/nvim-lspconfig' },           -- Required
-      { 'williamboman/mason.nvim' },         -- Optional
+      { 'neovim/nvim-lspconfig' },             -- Required
+      { 'williamboman/mason.nvim' },           -- Optional
       { 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
       -- Autocompletion
-      { 'hrsh7th/nvim-cmp' },   -- Required
+      { 'hrsh7th/nvim-cmp' },     -- Required
       { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-      { 'L3MON4D3/LuaSnip' },   -- Required
+      { 'L3MON4D3/LuaSnip' },     -- Required
       { 'hrsh7th/cmp-path' },
       { 'hrsh7th/cmp-buffer' },
       { 'rcarriga/cmp-dap' },
@@ -79,17 +112,11 @@ local plugins = {
   },
 
   -- Nvim Tree (file browser)
-  -- {
-  --   'nvim-tree/nvim-tree.lua',
-  --   dependencies = {
-  --     { 'nvim-tree/nvim-web-devicons' }
-  --   }
-  -- },
-
-  -- Statusline
   {
-    'nvim-lualine/lualine.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons', opt = true },
+    'nvim-tree/nvim-tree.lua',
+    dependencies = {
+      { 'nvim-tree/nvim-web-devicons' }
+    }
   },
 
   -- Gitsigns
@@ -147,14 +174,15 @@ local plugins = {
 local opts = {}
 
 require("lazy").setup(plugins, opts)
--- require("plugins.treesitter")
-require("plugins.undotree")
+require("plugins.treesitter")
 require("plugins.fzf")
 require("plugins.lsp-zero")
 require("plugins.mason-lspconfig")
 require("plugins.mason_nvim_dap")
 require("plugins.dap")
--- require("plugins.nvimtree")
+require("plugins.nvimtree")
+require("plugins.indent-blankline")
+require("plugins.multicursor")
 require("plugins.lualine")
 require("plugins.gitgutter")
 require("plugins.bufferline")
