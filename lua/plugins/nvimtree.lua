@@ -15,7 +15,7 @@ local function my_on_attach(bufnr)
 end
 
 -- Opens NvimTree
-vim.api.nvim_set_keymap( "n", "<C-o>", ":NvimTreeToggle<CR>", { noremap = true } )
+vim.api.nvim_set_keymap( "n", "<C-n>", ":NvimTreeToggle<CR>", { noremap = true } )
 
 require("nvim-tree").setup({
   sort_by = "case_sensitive",

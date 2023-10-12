@@ -1,3 +1,7 @@
+lazy-lock.json
+
+lua/.*
+
 plugin/jdt/latest/config_linux/*
 !plugin/jdt/latest/config_linux/config.ini
 

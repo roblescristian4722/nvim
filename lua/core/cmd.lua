@@ -30,5 +30,8 @@ vim.cmd [[ match RedundantSpaces /\s\+$/ ]]
 -- Show indentation spaces as dots
 vim.cmd [[ set lcs+=space:· ]]
 
+-- Call autoread whenever a buffer is focused
+vim.cmd [[ au FocusGained,BufEnter * :silent! ! ]]
+
 -- Transparency
 -- vim.cmd [[autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE]]
