@@ -39,7 +39,6 @@ local plugins = {
   },
 
   -- Multiple cursors
-  -- lazy.nvim:
   {
     "smoka7/multicursors.nvim",
     event = "VeryLazy",

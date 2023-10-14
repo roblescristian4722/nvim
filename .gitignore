@@ -38,3 +38,6 @@ plugin/jdt/jdt-language-server-1.19.0-202301090450/config_ss_win/*
 
 plugin/jdt/jdt-language-server-1.19.0-202301090450/config_win/*
 !plugin/jdt/jdt-language-server-1.19.0-202301090450/config_win/config.ini
+
+
+plugin/jdt/jdt-language-server-1.19.0-202301090450/plugins/.nfs*
