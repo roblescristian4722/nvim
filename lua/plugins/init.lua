@@ -39,30 +39,7 @@ local plugins = {
   },
 
   -- Multiple cursors
-  {
-    "smoka7/multicursors.nvim",
-    event = "VeryLazy",
-    dependencies = {
-      'smoka7/hydra.nvim',
-    },
-    opts = {},
-    cmd = {
-      'MCstart',
-      'MCvisual',
-      'MCclear',
-      'MCpattern',
-      'MCvisualPattern',
-      'MCunderCursor'
-    },
-    keys = {
-      {
-        mode = { 'v', 'n' },
-        '<Leader>m',
-        '<cmd>MCstart<cr>',
-        desc = 'Create a selection for selected text or word under the cursor',
-      },
-    },
-  },
+  "mg979/vim-visual-multi",
 
   -- Auto pairs for tags
   'alvan/vim-closetag',
@@ -181,9 +158,8 @@ require("plugins.mason_nvim_dap")
 require("plugins.dap")
 require("plugins.nvimtree")
 require("plugins.indent-blankline")
-require("plugins.multicursor")
 require("plugins.lualine")
-require("plugins.gitgutter")
+require("plugins.gitsigns")
 require("plugins.bufferline")
 require("plugins.terminal")
 require("plugins.symbols-outline")
