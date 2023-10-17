@@ -136,9 +136,13 @@ local plugins = {
 
   -- FZF
   {
-    "ibhagwan/fzf-lua",
+    "vijaymarupudi/nvim-fzf",
     -- optional for icon support
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    dependencies = {
+      { "nvim-tree/nvim-web-devicons" },
+      { "ibhagwan/fzf-lua" },
+      { "vijaymarupudi/nvim-fzf-commands" }
+    },
     -- config = function()
     --   -- calling `setup` is optional for customization
     --   require("fzf-lua").setup({})
