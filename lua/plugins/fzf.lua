@@ -15,6 +15,17 @@ vim.keymap.set("n",
   end, { silent = true, desc = "Fuzzy complete file" }
 )
 
+vim.keymap.set("n",
+  "ref",
+  function()
+    require("fzf-lua").lsp_references({
+      fzf_opts = {
+        ['--layout'] = 'reverse-list',
+      },
+    }, "--ansi")
+  end, { silent = true, desc = "Fuzzy complete file" }
+)
+
 vim.keymap.set(
   "n",
   "<C-f>",
