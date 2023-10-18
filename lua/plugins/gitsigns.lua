@@ -67,10 +67,10 @@ require('gitsigns').setup {
     map('n', 'a', gs.stage_hunk)
     map('n', 'U', gs.undo_stage_hunk)
     map('n', 'r', gs.reset_hunk)
-    map('n', 'd', gs.preview_hunk)
+    map('n', 'D', gs.preview_hunk)
     map('n', 'b', function() gs.blame_line { full = true } end)
     map('n', 'B', gs.toggle_current_line_blame)
-    map('n', 'D', gs.diffthis)
+    map('n', 'gd', gs.diffthis)
     map('n', 'gt', gs.toggle_deleted)
 
     -- Text object
