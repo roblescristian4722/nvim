@@ -134,6 +134,12 @@ local plugins = {
   -- Symbols outline
   'simrat39/symbols-outline.nvim',
 
+  -- Telescope
+  {
+    'nvim-telescope/telescope.nvim', tag = '0.1.4',
+      dependencies = { 'nvim-lua/plenary.nvim' }
+  },
+
   -- FZF
   {
     "vijaymarupudi/nvim-fzf",
