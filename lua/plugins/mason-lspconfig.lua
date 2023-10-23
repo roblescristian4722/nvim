@@ -20,29 +20,31 @@ require('mason').setup({
 })
 require('mason-lspconfig').setup({
   ensure_installed = {
-    -- "bashls",
+    "bashls",
     -- "pkgbuild_language_server",
-    -- "clangd",
+    "clangd",
     -- "omnisharp_mono",
     -- "cmake",
-    -- "eslint",
+    "eslint",
     -- "golangci_lint_ls",
     -- "gopls",
     -- "graphql",
     -- "groovyls",
-    -- "html",
-    -- "jsonls",
-    -- "jdtls",
-    -- "tsserver",
-    -- "vtsls",
+    "html",
+    "jsonls",
+    "jdtls",
+    "tsserver",
+    "vtsls",
+    "vtsls",
     -- "kotlin_language_server",
-    -- "lua_ls",
+    "lua_ls",
     -- "perlnavigator",
-    -- "pyright",
-    -- "sqlls",
+    "pyright",
+    -- "pylsp",
+    "sqlls",
     -- "rust_analyzer",
     -- "lemminx",
-    -- "yamlls"
+    "yamlls"
   },
   automatic_installation = true
 })
