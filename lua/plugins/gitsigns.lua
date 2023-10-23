@@ -70,8 +70,8 @@ require('gitsigns').setup {
     map('n', 'D', gs.preview_hunk)
     map('n', 'b', function() gs.blame_line { full = true } end)
     map('n', 'B', gs.toggle_current_line_blame)
-    map('n', 'gd', gs.diffthis)
-    map('n', 'gt', gs.toggle_deleted)
+    map('n', 'dif', gs.diffthis)
+    map('n', 'del', gs.toggle_deleted)
 
     -- Text object
     map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
