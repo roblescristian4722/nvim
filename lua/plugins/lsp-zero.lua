@@ -91,7 +91,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     local opts = { buffer = ev.buf }
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+    -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
     vim.keymap.set('n', 'h', vim.lsp.buf.hover, opts)
     vim.keymap.set('n', 'gi', function()
         telescope.lsp_implementations()
@@ -108,7 +108,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     )
     vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, opts)
     vim.keymap.set('n', '<C-r>', vim.lsp.buf.rename, opts)
-    vim.keymap.set({ 'n', 'v' }, 'A', vim.lsp.buf.code_action, opts)
+    -- vim.keymap.set({ 'n', 'v' }, 'A', vim.lsp.buf.code_action, opts)
     vim.keymap.set('n', 'gr', function()
       telescope.lsp_references()
     end, opts

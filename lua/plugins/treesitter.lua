@@ -29,6 +29,8 @@ require'nvim-treesitter.configs'.setup {
     "make",
     "matlab",
     "meson",
+    "markdown",
+    "markdown_inline",
     "ninja",
     "perl",
     "php",
