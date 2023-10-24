@@ -132,9 +132,6 @@ local plugins = {
     config = true,
   },
 
-  -- Symbols outline
-  'simrat39/symbols-outline.nvim',
-
   -- Telescope
   {
     'nvim-telescope/telescope.nvim', tag = '0.1.4',
@@ -186,5 +183,4 @@ require("plugins.lualine")
 require("plugins.gitsigns")
 require("plugins.bufferline")
 require("plugins.terminal")
-require("plugins.symbols-outline")
 require("plugins.telescope")
