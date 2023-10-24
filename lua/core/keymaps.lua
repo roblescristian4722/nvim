@@ -18,101 +18,69 @@ foldKey('n', "<C-j>",
   foldSilent)
 
 -- yank relative file path
-vim.api.nvim_set_keymap("n", "sd", ':let @+ = expand("%")<CR>', { noremap = true })
+vim.keymap.set( { "n", "v" }, "sd", ':let @+ = expand("%")<CR>', { noremap = true })
 -- yank full file path
-vim.api.nvim_set_keymap("n", "SD", ':let @+ = expand("%:p")<CR>', { noremap = true })
+vim.keymap.set( { "n", "v" }, "SD", ':let @+ = expand("%:p")<CR>', { noremap = true })
 
 -- Smart way to move between panes
-vim.api.nvim_set_keymap("n", "<C-s-up>", "<C-w><up>", {})
-vim.api.nvim_set_keymap("n", "<C-s-down>", "<C-w><down>", {})
-vim.api.nvim_set_keymap("n", "<C-s-left>", "<C-w><left>", {})
-vim.api.nvim_set_keymap("n", "<C-s-right>", "<C-w><right>", {})
+vim.keymap.set( { "n", "v" }, "<C-s-up>", "<C-w><up>", {})
+vim.keymap.set( { "n", "v" }, "<C-s-down>", "<C-w><down>", {})
+vim.keymap.set( { "n", "v" }, "<C-s-left>", "<C-w><left>", {})
+vim.keymap.set( { "n", "v" }, "<C-s-right>", "<C-w><right>", {})
 
 -- Uses system clipboard instead of vim's clipboard
-vim.api.nvim_set_keymap("n", "y", '"+y', { noremap = true })
-vim.api.nvim_set_keymap("n", "Y", '"+Y', { noremap = true })
-vim.api.nvim_set_keymap("n", "p", '"+p', { noremap = true })
-vim.api.nvim_set_keymap("n", "P", '"+P', { noremap = true })
-vim.api.nvim_set_keymap("n", "d", '"+d', { noremap = true })
-vim.api.nvim_set_keymap("n", "D", '"+D', { noremap = true })
-vim.api.nvim_set_keymap("n", "c", '"+c', { noremap = true })
-vim.api.nvim_set_keymap("n", "C", '"+C', { noremap = true })
-
-vim.api.nvim_set_keymap("v", "y", '"+y', { noremap = true })
-vim.api.nvim_set_keymap("v", "Y", '"+Y', { noremap = true })
-vim.api.nvim_set_keymap("v", "p", '"+p', { noremap = true })
-vim.api.nvim_set_keymap("v", "P", '"+P', { noremap = true })
-vim.api.nvim_set_keymap("v", "d", '"+d', { noremap = true })
-vim.api.nvim_set_keymap("v", "D", '"+D', { noremap = true })
-vim.api.nvim_set_keymap("v", "c", '"+c', { noremap = true })
-vim.api.nvim_set_keymap("v", "C", '"+C', { noremap = true })
+vim.keymap.set( {"n", "v" }, "y", '"+y', { noremap = true })
+vim.keymap.set( {"n", "v" }, "Y", '"+Y', { noremap = true })
+vim.keymap.set( {"n", "v" }, "p", '"+p', { noremap = true })
+vim.keymap.set( {"n", "v" }, "P", '"+P', { noremap = true })
+vim.keymap.set( {"n", "v" }, "d", '"+d', { noremap = true })
+vim.keymap.set( {"n", "v" }, "D", '"+D', { noremap = true })
+vim.keymap.set( {"n", "v" }, "c", '"+c', { noremap = true })
+vim.keymap.set( {"n", "v" }, "C", '"+C', { noremap = true })
 
 -- remaping hjlk keys
-vim.api.nvim_set_keymap("n", "j", "h", { noremap = true })
-vim.api.nvim_set_keymap("n", "k", "j", { noremap = true })
-vim.api.nvim_set_keymap("n", "l", "k", { noremap = true })
-vim.api.nvim_set_keymap("n", "ñ", "l", { noremap = true })
-
-vim.api.nvim_set_keymap("v", "j", "h", { noremap = true })
-vim.api.nvim_set_keymap("v", "k", "j", { noremap = true })
-vim.api.nvim_set_keymap("v", "l", "k", { noremap = true })
-vim.api.nvim_set_keymap("v", "ñ", "l", { noremap = true })
+vim.keymap.set( { "n", "v" }, "j", "h", { noremap = true })
+vim.keymap.set( { "n", "v" }, "k", "j", { noremap = true })
+vim.keymap.set( { "n", "v" }, "l", "k", { noremap = true })
+vim.keymap.set( { "n", "v" }, "ñ", "l", { noremap = true })
 
 -- Creates new tab
--- vim.api.nvim_set_keymap( "n", "<C-n>", ":tabnew<CR>", { noremap = true } )
--- vim.api.nvim_set_keymap( "v", "<C-n>", ":tabnew<CR>", { noremap = true } )
+-- vim.keymap.set( { "n", "v" }, "<C-n>", ":tabnew<CR>", { noremap = true } )
 
 -- Iterates over tabs
--- vim.api.nvim_set_keymap( "n", "<C-p>", ":tabn<CR>", { noremap = true } )
--- vim.api.nvim_set_keymap( "v", "<C-p>", ":tabn<CR>", { noremap = true } )
--- vim.api.nvim_set_keymap( "n", "<C-PageUp>", ":tabn<CR>", { noremap = true } )
--- vim.api.nvim_set_keymap( "v", "<C-PageUp>", ":tabn<CR>", { noremap = true } )
--- vim.api.nvim_set_keymap( "n", "<C-PageDown>", ":tabp<CR>", { noremap = true } )
--- vim.api.nvim_set_keymap( "v", "<PC-ageDown>", ":tabp<CR>", { noremap = true } )
+-- vim.keymap.set( { "n", "v" }, "<C-p>", ":tabn<CR>", { noremap = true } )
+-- vim.keymap.set( { "n", "v" }, "<C-PageUp>", ":tabn<CR>", { noremap = true } )
+-- vim.keymap.set( { "n", "v" }, "<C-PageDown>", ":tabp<CR>", { noremap = true } )
 
 -- Splits window horizontally
-vim.api.nvim_set_keymap("n", "<C-h>", ":sp<CR>", { noremap = true })
-vim.api.nvim_set_keymap("v", "<C-h>", ":sp<CR>", { noremap = true })
+vim.keymap.set( { "n", "v" }, "<C-h>", ":sp<CR>", { noremap = true })
 
 -- Splits window vertically
-vim.api.nvim_set_keymap("n", "<C-v>", ":vsp<CR>", { noremap = true })
-vim.api.nvim_set_keymap("v", "<C-v>", ":vsp<CR>", { noremap = true })
+vim.keymap.set( { "n", "v" }, "<C-v>", ":vsp<CR>", { noremap = true })
 
 -- Undo
-vim.api.nvim_set_keymap("n", "<C-z>", ":undo<CR>", { noremap = true })
-vim.api.nvim_set_keymap("v", "<C-z>", ":undo<CR>", { noremap = true })
+vim.keymap.set( { "n", "v" }, "<C-z>", ":undo<CR>", { noremap = true })
 
 -- Redo
-vim.api.nvim_set_keymap("n", "<C-y>", ":redo<CR>", { noremap = true })
-vim.api.nvim_set_keymap("v", "<C-y>", ":redo<CR>", { noremap = true })
+vim.keymap.set( { "n", "v" }, "<C-y>", ":redo<CR>", { noremap = true })
 
 -- Ctrl + s to save changes
-vim.api.nvim_set_keymap("n", "<C-s>", ":update<CR>", { noremap = true })
-vim.api.nvim_set_keymap("v", "<C-s>", "<C-C>:update<CR>", { noremap = true })
-vim.api.nvim_set_keymap("i", "<C-s>", "<C-O>:update<CR>", { noremap = true })
+vim.keymap.set({ "n", "v", "i" }, "<C-s>", ":update<CR>", { noremap = true })
 
 -- Save changes using sudo
-vim.api.nvim_set_keymap('c', 'w!!', "<esc>:lua require('core.utils').sudo_write()<CR>", { silent = true })
+vim.keymap.set('c', 'w!!', "<esc>:lua require('core.utils').sudo_write()<CR>", { silent = true })
 
 -- Maps Alt-[j,k,l, ñ] to resizing a window split
-vim.api.nvim_set_keymap("n", "<A-Up>", ":resize -2<CR>", { noremap = true })
-vim.api.nvim_set_keymap("v", "<A-Up>", ":resize -2<CR>", { noremap = true })
-vim.api.nvim_set_keymap("i", "<A-Up>", ":resize -2<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<A-Down>", ":resize +2<CR>", { noremap = true })
-vim.api.nvim_set_keymap("v", "<A-Down>", ":resize +2<CR>", { noremap = true })
-vim.api.nvim_set_keymap("i", "<A-Down>", ":resize +2<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<A-Left>", ":vertical resize +2<CR>", { noremap = true })
-vim.api.nvim_set_keymap("v", "<A-Left>", ":vertical resize +2<CR>", { noremap = true })
-vim.api.nvim_set_keymap("i", "<A-Left>", ":vertical resize +2<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<A-Right>", ":vertical resize -2<CR>", { noremap = true })
-vim.api.nvim_set_keymap("v", "<A-Right>", ":vertical resize -2<CR>", { noremap = true })
-vim.api.nvim_set_keymap("i", "<A-Right>", ":vertical resize -2<CR>", { noremap = true })
+vim.keymap.set( { "n", "v", "i" }, "<A-Up>", ":resize -2<CR>", { noremap = true })
+vim.keymap.set( { "n", "v", "i" }, "<A-Down>", ":resize +2<CR>", { noremap = true })
+vim.keymap.set( { "n", "v", "i" }, "<A-Left>", ":vertical resize +2<CR>", { noremap = true })
+vim.keymap.set( { "n", "v", "i" }, "<A-Right>", ":vertical resize -2<CR>", { noremap = true })
 
 -- Reposition windows
-vim.api.nvim_set_keymap("n", "wy", ":call WindowSwap#MarkWindowSwap()<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "wp", ":call WindowSwap#DoWindowSwap()<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "ww", ":call WindowSwap#EasyWindowSwap()<CR>", { noremap = true })
+vim.keymap.set("n", "wy", ":call WindowSwap#MarkWindowSwap()<CR>", { noremap = true })
+vim.keymap.set("n", "wp", ":call WindowSwap#DoWindowSwap()<CR>", { noremap = true })
+vim.keymap.set("n", "ww", ":call WindowSwap#EasyWindowSwap()<CR>", { noremap = true })
 
 -- Keep visual mode after ident
-vim.api.nvim_set_keymap("v", ">", ">gv", { noremap = true })
-vim.api.nvim_set_keymap("v", "<", "<gv", { noremap = true })
+vim.keymap.set("v", ">", ">gv", { noremap = true })
+vim.keymap.set("v", "<", "<gv", { noremap = true })

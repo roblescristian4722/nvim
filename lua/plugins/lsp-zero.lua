@@ -71,7 +71,6 @@ cmp.setup({
         Array = '',
         List = ''
       }
-
       item.menu = (icons[item.kind] or '') .. ' '
       return item
     end,
@@ -93,7 +92,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     local opts = { buffer = ev.buf }
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+    vim.keymap.set('n', 'h', vim.lsp.buf.hover, opts)
     vim.keymap.set('n', 'gi', function()
         telescope.lsp_implementations()
       end,
@@ -107,14 +106,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
       end,
       opts
     )
-    vim.keymap.set('n', 'h', vim.lsp.buf.type_definition, opts)
+    vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, opts)
     vim.keymap.set('n', '<C-r>', vim.lsp.buf.rename, opts)
     vim.keymap.set({ 'n', 'v' }, 'A', vim.lsp.buf.code_action, opts)
     vim.keymap.set('n', 'gr', function()
-        telescope.lsp_references()
-      end, opts
+      telescope.lsp_references()
+    end, opts
     )
-    vim.keymap.set('n', 'fg', function()
+    vim.keymap.set('n', '<space>f', function()
       vim.lsp.buf.format { async = true }
     end, opts)
   end,

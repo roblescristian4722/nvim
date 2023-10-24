@@ -12,17 +12,6 @@
 --     nnoremap <c-t> :call OpenTerminal()<CR>
 -- ]])
 
-vim.cmd([[
-    function! LightlineFilename()
-      let root = fnamemodify(get(b:, 'git_dir'), ':h')
-      let path = expand('%:p')
-      if path[:len(root)-1] ==# root
-        return path[len(root)+1:]
-      endif
-      return expand('%')
-    endfunction
-]])
-
 -- Move lines up and down (functions)
 vim.cmd([[
     function! s:swap_lines(n1, n2)
@@ -52,6 +41,6 @@ vim.cmd([[
         exec n + 1
     endfunction
 
-    noremap <silent> <C-l> :call <SID>swap_up()<CR>
-    noremap <silent> <C-k> :call <SID>swap_down()<CR>
+    noremap <silent> <C-L> :call <SID>swap_up()<CR>
+    noremap <silent> <C-K> :call <SID>swap_down()<CR>
 ]])

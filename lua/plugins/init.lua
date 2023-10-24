@@ -82,6 +82,7 @@ local plugins = {
       { 'neovim/nvim-lspconfig' },             -- Required
       { 'williamboman/mason.nvim' },           -- Optional
       { 'williamboman/mason-lspconfig.nvim' }, -- Optional
+      { 'nvimdev/lspsaga.nvim' },
 
       -- Autocompletion
       { 'hrsh7th/nvim-cmp' },     -- Required
@@ -174,6 +175,7 @@ require("plugins.fzf")
 require("plugins.lsp-zero")
 require("plugins.mason-lspconfig")
 require("plugins.mason-nvim-dap")
+require("plugins.lspsaga")
 require("plugins.dap")
 require("plugins.nvimtree")
 require("plugins.indent-blankline")
