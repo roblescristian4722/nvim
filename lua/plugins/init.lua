@@ -93,7 +93,8 @@ local plugins = {
       { 'rcarriga/cmp-dap' },
       { 'mfussenegger/nvim-dap' },
       { 'rcarriga/nvim-dap-ui' },
-      { 'mfussenegger/nvim-jdtls' }
+      { 'mfussenegger/nvim-jdtls' },
+      { 'hrsh7th/cmp-nvim-lsp-signature-help' },
     }
   },
 
@@ -123,13 +124,6 @@ local plugins = {
     'akinsho/bufferline.nvim',
     version = "*",
     dependencies = 'nvim-tree/nvim-web-devicons'
-  },
-
-  -- Terminal toggler
-  {
-    'akinsho/toggleterm.nvim',
-    version = "*",
-    config = true,
   },
 
   -- Telescope
@@ -182,5 +176,4 @@ require("plugins.indent-blankline")
 require("plugins.lualine")
 require("plugins.gitsigns")
 require("plugins.bufferline")
-require("plugins.terminal")
 require("plugins.telescope")

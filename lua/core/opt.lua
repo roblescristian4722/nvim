@@ -16,6 +16,9 @@ vim.opt.sel = "inclusive"
 -- Displays row numbers
 vim.opt.number = true
 
+-- Relative row number
+vim.opt.relativenumber = true
+
 -- Limits popup menu height
 vim.opt.pumheight = 20
 

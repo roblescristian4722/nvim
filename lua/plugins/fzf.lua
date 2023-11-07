@@ -33,7 +33,7 @@ vim.keymap.set(
   { silent = true }
 )
 
-vim.keymap.set("n", "<C-g>",
+vim.keymap.set("n", "G",
   function()
     require("fzf-lua").live_grep_glob({
       fzf_opts = {
