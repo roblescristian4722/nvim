@@ -1,6 +1,6 @@
 local fzf = require("fzf-lua").setup {}
 
-vim.keymap.set("n", "F", ":FzfLua<CR>", { silent = true })
+-- vim.keymap.set("n", "F", ":FzfLua<CR>", { silent = true })
 
 vim.keymap.set("n",
   "ff",

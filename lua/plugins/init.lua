@@ -93,7 +93,6 @@ local plugins = {
       { 'rcarriga/cmp-dap' },
       { 'mfussenegger/nvim-dap' },
       { 'rcarriga/nvim-dap-ui' },
-      { 'mfussenegger/nvim-jdtls' },
       { 'hrsh7th/cmp-nvim-lsp-signature-help' },
     }
   },
@@ -158,7 +157,16 @@ local plugins = {
   },
 
   -- Startup time (TODO: delete)
-  'dstein64/vim-startuptime'
+  'dstein64/vim-startuptime',
+
+  -- Custom notifications
+  'rcarriga/nvim-notify',
+
+  -- Moving cursor faster
+  'ggandor/lightspeed.nvim',
+
+  -- Illuminate word all over the file
+  'RRethy/vim-illuminate',
 }
 
 local opts = {}
@@ -177,3 +185,4 @@ require("plugins.lualine")
 require("plugins.gitsigns")
 require("plugins.bufferline")
 require("plugins.telescope")
+require("plugins.notify")
