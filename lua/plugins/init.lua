@@ -149,15 +149,20 @@ local plugins = {
     -- end
   },
 
+  -- Todo comments for Telescope
+  {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {
+    }
+  },
+
   -- DAP (Debugger)
   {
     "williamboman/mason.nvim",
     "mfussenegger/nvim-dap",
     "jay-babu/mason-nvim-dap.nvim",
   },
-
-  -- Startup time (TODO: delete)
-  'dstein64/vim-startuptime',
 
   -- Custom notifications
   'rcarriga/nvim-notify',
@@ -167,6 +172,12 @@ local plugins = {
 
   -- Illuminate word all over the file
   'RRethy/vim-illuminate',
+
+  -- Java language server (eclipse)
+  'mfussenegger/nvim-jdtls',
+
+  -- Move lines and blocks vert. and hor.
+  'fedepujol/move.nvim',
 }
 
 local opts = {}
@@ -186,3 +197,4 @@ require("plugins.gitsigns")
 require("plugins.bufferline")
 require("plugins.telescope")
 require("plugins.notify")
+require("plugins.move")

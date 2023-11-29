@@ -18,9 +18,9 @@ foldKey('n', "<C-j>",
   foldSilent)
 
 -- yank relative file path
-vim.keymap.set( { "n", "v" }, "sd", ':let @+ = expand("%")<CR>', { noremap = true })
+-- vim.keymap.set( { "n", "v" }, "dir", ':let @+ = expand("%")<CR>', { noremap = true })
 -- yank full file path
-vim.keymap.set( { "n", "v" }, "SD", ':let @+ = expand("%:p")<CR>', { noremap = true })
+vim.keymap.set( { "n", "v" }, "dir", ':let @+ = expand("%:p")<CR>', { noremap = true })
 
 -- Smart way to move between panes
 vim.keymap.set( { "n", "v" }, "<C-s-up>", "<C-w><up>", {})
@@ -43,14 +43,6 @@ vim.keymap.set( { "n", "v" }, "j", "h", { noremap = true })
 vim.keymap.set( { "n", "v" }, "k", "j", { noremap = true })
 vim.keymap.set( { "n", "v" }, "l", "k", { noremap = true })
 vim.keymap.set( { "n", "v" }, "ñ", "l", { noremap = true })
-
--- Creates new tab
--- vim.keymap.set( { "n", "v" }, "<C-n>", ":tabnew<CR>", { noremap = true } )
-
--- Iterates over tabs
--- vim.keymap.set( { "n", "v" }, "<C-p>", ":tabn<CR>", { noremap = true } )
--- vim.keymap.set( { "n", "v" }, "<C-PageUp>", ":tabn<CR>", { noremap = true } )
--- vim.keymap.set( { "n", "v" }, "<C-PageDown>", ":tabp<CR>", { noremap = true } )
 
 -- Splits window horizontally
 vim.keymap.set( { "n", "v" }, "<C-h>", ":sp<CR>", { noremap = true })

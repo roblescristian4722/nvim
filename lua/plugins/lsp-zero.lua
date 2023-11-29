@@ -33,8 +33,8 @@ cmp.setup({
   mapping = cmp.mapping.preset.insert({
     ['<Tab>'] = cmp_action.luasnip_supertab(),
     ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
-    ['<C-b>'] = cmp_action.luasnip_jump_forward(),
-    ['<C-g>'] = cmp_action.luasnip_jump_backward(),
+    ['<C-m>'] = cmp_action.luasnip_jump_forward(),
+    ['<C-b>'] = cmp_action.luasnip_jump_backward(),
     ['<CR>'] = cmp.mapping.confirm({ select = false }),
   }),
   snippet = {
@@ -96,6 +96,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
       opts
     )
     vim.keymap.set('n', 'H', vim.lsp.buf.signature_help, opts)
+    vim.keymap.set('n', 'h', vim.lsp.buf.hover, opts)
     vim.keymap.set('n', 'wa', vim.lsp.buf.add_workspace_folder, opts)
     vim.keymap.set('n', 'wr', vim.lsp.buf.remove_workspace_folder, opts)
     vim.keymap.set('n', 'wl', function()
