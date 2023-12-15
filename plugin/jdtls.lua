@@ -192,7 +192,6 @@ local function jdtls_setup(event)
     '-javaagent:/scratch/lombok.jar',
     '-Xbootclasspath/a:/scratch/lombok.jar',
 
-
     -- 💀
     '-configuration', path.platform_config,
 

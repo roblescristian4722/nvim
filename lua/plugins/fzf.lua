@@ -10,8 +10,9 @@ vim.keymap.set("n",
         ['--layout'] = 'reverse-list',
       },
       cmd =
-      'find . -not -path "*target*" -not -path "*.ade_path*" -not -path "*.git*" -not -path "*.manifest*" -not -path "*.metadata*" -not -name "*.jar"',
-    }, "--ansi")
+      "rg --files -Lc --glob '!*target*' --glob '!*.jar'",
+      -- 'find . -not -path "*target*" -not -path "*.ade_path*" -not -path "*.git*" -not -path "*.manifest*" -not -path "*.metadata*" -not -name "*.jar"',
+    })
   end, { silent = true, desc = "Fuzzy complete file" }
 )
 
@@ -40,7 +41,8 @@ vim.keymap.set("n", "G",
         ['--layout'] = 'reverse-list',
       },
       cmd =
-      "grep -RnaI --color --exclude-dir='target' --exclude-dir='.ade_path' --exclude-dir='.git' --exclude='.manifest' --exclude='.metadata' --exclude='.fullsource' --exclude='.ndep*'",
-    }, "--ansi")
+      "rg -Lc --glob '!*target*'"
+      -- "grep -RnaI --color --exclude-dir='target' --exclude-dir='.ade_path' --exclude-dir='.git' --exclude='.manifest' --exclude='.metadata' --exclude='.fullsource' --exclude='.ndep*'",
+    })
   end, { silent = true, desc = "Fuzzy complete file" }
 )

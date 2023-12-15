@@ -168,7 +168,7 @@ local plugins = {
 
   -- DAP (Debugger)
   {
-    "williamboman/mason.nvim",
+    "rcarriga/nvim-dap-ui",
     "mfussenegger/nvim-dap",
     "jay-babu/mason-nvim-dap.nvim",
   },

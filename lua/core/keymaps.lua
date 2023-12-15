@@ -22,6 +22,11 @@ foldKey('n', "<C-j>",
 -- yank full file path
 vim.keymap.set( { "n", "v" }, "dir", ':let @+ = expand("%:p")<CR>', { noremap = true })
 
+-- Scroll up
+-- nnoremap <c-e> <c-u>
+vim.keymap.set( { "n", "v" }, "<PageUp>", "<C-y>" )
+vim.keymap.set( { "n", "v" }, "<PageDown>", "<C-e>" )
+
 -- Smart way to move between panes
 vim.keymap.set( { "n", "v" }, "<C-s-up>", "<C-w><up>", {})
 vim.keymap.set( { "n", "v" }, "<C-s-down>", "<C-w><down>", {})
