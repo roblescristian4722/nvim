@@ -20,7 +20,7 @@ require('mason').setup({
 })
 require('mason-lspconfig').setup({
   ensure_installed = {
-    "bashls",
+    -- "bashls",
     -- "pkgbuild_language_server",
     "clangd",
     -- "omnisharp_mono",
@@ -33,13 +33,13 @@ require('mason-lspconfig').setup({
     "html",
     "jsonls",
     "jdtls",
-    "tsserver",
+    -- "tsserver",
     "vtsls",
     "vtsls",
     -- "kotlin_language_server",
     "lua_ls",
     -- "perlnavigator",
-    "pyright",
+    -- "pyright",
     -- "pylsp",
     "sqlls",
     -- "rust_analyzer",
@@ -47,4 +47,17 @@ require('mason-lspconfig').setup({
     "yamlls"
   },
   automatic_installation = true
+})
+
+-- Local LSP server installations
+
+-- bash
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'sh',
+  callback = function()
+    vim.lsp.start({
+      name = 'bash-language-server',
+      cmd = { 'bash-language-server', 'start' },
+    })
+  end,
 })

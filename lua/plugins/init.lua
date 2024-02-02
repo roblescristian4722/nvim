@@ -52,6 +52,15 @@ local plugins = {
     end,
   },
 
+  -- Pretty error list
+  "folke/trouble.nvim",
+   dependencies = { "nvim-tree/nvim-web-devicons" },
+   opts = {
+    -- your configuration comes here
+    -- or leave it empty to use the default settings
+    -- refer to the configuration section below
+   },
+
   -- Auto pairs for tags
   'alvan/vim-closetag',
 
@@ -200,6 +209,7 @@ require("plugins.lsp-zero")
 require("plugins.mason-lspconfig")
 require("plugins.mason-nvim-dap")
 require("plugins.lspsaga")
+require("plugins.trouble")
 require("plugins.dap")
 require("plugins.nvimtree")
 require("plugins.indent-blankline")

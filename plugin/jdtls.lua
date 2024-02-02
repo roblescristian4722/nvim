@@ -28,7 +28,7 @@ local function get_jdtls_paths()
 
   path.data_dir = vim.fn.stdpath('cache') .. '/nvim-jdtls'
 
-  local jdtls_install = os.getenv("HOME") .. "/.config/nvim/plugin/jdt/latest/"
+  local jdtls_install = os.getenv("HOME") .. "/.config/nvim/plugin/jdt/latest"
 
   path.launcher_jar = vim.fn.glob(jdtls_install .. '/plugins/org.eclipse.equinox.launcher_*.jar')
 
@@ -45,7 +45,7 @@ local function get_jdtls_paths()
   ---
   -- Include java-test bundle if present
   ---
-  local java_test_path = os.getenv( "HOME" ) .. "/.config/nvim/ftplugin/jdt/latest/"
+  local java_test_path = os.getenv( "HOME" ) .. "/.config/nvim/ftplugin/jdt/latest"
 
   local java_test_bundle = vim.split(
     vim.fn.glob(java_test_path .. '/extension/server/*.jar'),
@@ -59,7 +59,7 @@ local function get_jdtls_paths()
   ---
   -- Include java-debug-adapter bundle if present
   ---
-  local java_debug_path = os.getenv("HOME") .. "/.config/nvim/ftplugin/jdt/latest/"
+  local java_debug_path = os.getenv("HOME") .. "/.config/nvim/ftplugin/jdt/latest"
 
   local java_debug_bundle = vim.split(
     vim.fn.glob(java_debug_path .. '/extension/server/com.microsoft.java.debug.plugin-*.jar'),
@@ -82,7 +82,7 @@ local function get_jdtls_paths()
     -- This example assume you are using sdkman: https://sdkman.io
     {
       name = 'JavaSE-17',
-      path = '/usr/java/jdk-17',
+      path = '/usr/java/jdk-17.0.5',
     },
     -- {
     --   name = 'JavaSE-18',
@@ -175,13 +175,13 @@ local function jdtls_setup(event)
   -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
   local cmd = {
     -- 💀
-    '/usr/java/jdk-17/bin/java',
+    '/usr/java/latest/bin/java',
     '-Declipse.application=org.eclipse.jdt.ls.core.id1',
     '-Dosgi.bundles.defaultStartLevel=4',
     '-Declipse.product=org.eclipse.jdt.ls.core.product',
     '-Dlog.protocol=true',
     '-Dlog.level=ALL',
-    '-Xms1g',
+    '-Xms3g',
     '--add-modules=ALL-SYSTEM',
     '--add-opens', 'java.base/java.util=ALL-UNNAMED',
     '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
@@ -189,8 +189,8 @@ local function jdtls_setup(event)
     -- 💀
     '-jar', path.launcher_jar,
 
-    '-javaagent:/scratch/lombok.jar',
-    '-Xbootclasspath/a:/scratch/lombok.jar',
+    '-javaagent:$HOME/.config/nvim/plugin/lombok.jar',
+    '-Xbootclasspath/a:$HOME/.config/nvim/plugin/lombok.jar',
 
     -- 💀
     '-configuration', path.platform_config,

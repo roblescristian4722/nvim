@@ -43,6 +43,12 @@ vim.keymap.set( {"n", "v" }, "D", '"+D', { noremap = true })
 vim.keymap.set( {"n", "v" }, "c", '"+c', { noremap = true })
 vim.keymap.set( {"n", "v" }, "C", '"+C', { noremap = true })
 
+-- Allow clipboard copy paste in neovim
+vim.api.nvim_set_keymap('', '<D-v>', '+p<CR>', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('!', '<D-v>', '<C-R>+', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('t', '<D-v>', '<C-R>+', { noremap = true, silent = true})
+vim.api.nvim_set_keymap('v', '<D-v>', '<C-R>+', { noremap = true, silent = true})
+
 -- remaping hjlk keys
 vim.keymap.set( { "n", "v" }, "j", "h", { noremap = true })
 vim.keymap.set( { "n", "v" }, "k", "j", { noremap = true })
