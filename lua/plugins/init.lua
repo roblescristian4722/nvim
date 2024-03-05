@@ -153,15 +153,6 @@ local plugins = {
     }
   },
 
-  -- Vscode like Remote SSH
-  {
-    'chipsenkbeil/distant.nvim', 
-    branch = 'v0.3',
-    config = function()
-        require('distant'):setup()
-    end
-  },
-
   -- DAP (Debugger)
   {
     "rcarriga/nvim-dap-ui",

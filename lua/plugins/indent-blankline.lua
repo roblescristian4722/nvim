@@ -47,5 +47,6 @@ end)
 require("ibl").setup {
   indent = { highlight = highlight },
   whitespace = {
-    },
+    remove_blankline_trail = false,
+  }
 }
