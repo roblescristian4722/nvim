@@ -2,7 +2,8 @@ local fzf = require("fzf-lua").setup {}
 
 -- vim.keymap.set("n", "F", ":FzfLua<CR>", { silent = true })
 
-vim.keymap.set("n",
+vim.keymap.set(
+  "n",
   "ff",
   function()
     require("fzf-lua").files({
@@ -16,7 +17,8 @@ vim.keymap.set("n",
   end, { silent = true, desc = "Fuzzy complete file" }
 )
 
-vim.keymap.set("n",
+vim.keymap.set(
+  "n",
   "ref",
   function()
     require("fzf-lua").lsp_references({
@@ -34,7 +36,9 @@ vim.keymap.set(
   { silent = true }
 )
 
-vim.keymap.set("n", "G",
+vim.keymap.set(
+  "n",
+  "<C-g>",
   function()
     require("fzf-lua").live_grep_glob({
       fzf_opts = {

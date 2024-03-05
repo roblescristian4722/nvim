@@ -16,6 +16,12 @@ local plugins = {
   -- Colorscheme (vscode clone)
   'tomasiser/vim-code-dark',
 
+  -- Formatter
+  {
+    'stevearc/conform.nvim',
+    opt = {},
+  },
+
   -- Treesitter
   {
     'nvim-treesitter/nvim-treesitter',
@@ -54,12 +60,12 @@ local plugins = {
 
   -- Pretty error list
   "folke/trouble.nvim",
-   dependencies = { "nvim-tree/nvim-web-devicons" },
-   opts = {
+  dependencies = { "nvim-tree/nvim-web-devicons" },
+  opts = {
     -- your configuration comes here
     -- or leave it empty to use the default settings
     -- refer to the configuration section below
-   },
+  },
 
   -- Auto pairs for tags
   'alvan/vim-closetag',
@@ -138,11 +144,12 @@ local plugins = {
 
   -- Telescope
   {
-    'nvim-telescope/telescope.nvim', tag = '0.1.4',
-      dependencies = {
-        'nvim-lua/plenary.nvim',
-        'desdic/telescope-rooter.nvim'
-      }
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.4',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'desdic/telescope-rooter.nvim'
+    }
   },
 
   -- FZF
@@ -170,10 +177,10 @@ local plugins = {
 
   -- Vscode like Remote SSH
   {
-    'chipsenkbeil/distant.nvim', 
+    'chipsenkbeil/distant.nvim',
     branch = 'v0.3',
     config = function()
-        require('distant'):setup()
+      require('distant'):setup()
     end
   },
 
@@ -204,6 +211,7 @@ local opts = {}
 
 require("lazy").setup(plugins, opts)
 require("plugins.treesitter")
+require("plugins.conform")
 require("plugins.fzf")
 require("plugins.lsp-zero")
 require("plugins.mason-lspconfig")

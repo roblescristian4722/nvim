@@ -84,6 +84,10 @@ local function get_jdtls_paths()
       name = 'JavaSE-17',
       path = '/usr/java/jdk-17.0.5',
     },
+    {
+      name = 'JavaSE-11',
+      path = '/usr/lib/jvm/java-11-openjdk-11.0.22.0.7-2.0.1.el8.x86_64/'
+    },
     -- {
     --   name = 'JavaSE-18',
     --   path = vim.fn.expand('~/.sdkman/candidates/java/18.0.2-amzn'),
@@ -175,7 +179,7 @@ local function jdtls_setup(event)
   -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
   local cmd = {
     -- 💀
-    '/usr/java/latest/bin/java',
+    '/usr/java/default/bin/java',
     '-Declipse.application=org.eclipse.jdt.ls.core.id1',
     '-Dosgi.bundles.defaultStartLevel=4',
     '-Declipse.product=org.eclipse.jdt.ls.core.product',
