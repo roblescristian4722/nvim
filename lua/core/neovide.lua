@@ -20,6 +20,11 @@ if vim.g.neovide then
     neovideScale(-0.1)
   end)
 
+  -- Default font
+  vim.opt.guifont = {
+    "Inconsolata Nerd Font", ":h15"
+  }
+
   -- Enable copy/paste
   vim.keymap.set('n', '<C-s>', ':w<CR>') -- Save
   vim.keymap.set('v', '<C-S-C>', '"+y') -- Copy

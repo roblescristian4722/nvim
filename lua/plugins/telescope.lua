@@ -1,5 +1,6 @@
 local builtin = require('telescope.builtin')
 local utils = require("telescope.utils")
+require('telescope').load_extension('luasnip')
 
 vim.keymap.set('n', 'ff', builtin.find_files, {})
 vim.keymap.set('n', 'G', builtin.live_grep, {})
