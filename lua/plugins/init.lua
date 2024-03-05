@@ -165,6 +165,7 @@ local plugins = {
     "rcarriga/nvim-dap-ui",
     "mfussenegger/nvim-dap",
     "jay-babu/mason-nvim-dap.nvim",
+    "anuvyklack/hydra.nvim"
   },
 
   -- Custom notifications
@@ -178,9 +179,6 @@ local plugins = {
 
   -- Java language server (eclipse)
   'mfussenegger/nvim-jdtls',
-
-  -- Move lines and blocks vert. and hor.
-  'fedepujol/move.nvim',
 }
 
 local opts = {}
@@ -200,4 +198,3 @@ require("plugins.gitsigns")
 require("plugins.bufferline")
 require("plugins.telescope")
 require("plugins.notify")
-require("plugins.move")

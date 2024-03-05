@@ -27,6 +27,14 @@ vim.keymap.set( { "n", "v" }, "dir", ':let @+ = expand("%:p")<CR>', { noremap = 
 vim.keymap.set( { "n", "v" }, "<PageUp>", "<C-y>" )
 vim.keymap.set( { "n", "v" }, "<PageDown>", "<C-e>" )
 
+-- move lines up and down
+vim.keymap.set("n", "<C-l>", ":m .-2<CR>==")
+vim.keymap.set("n", "<C-k>", ":m .+1<CR>==")
+
+-- move line chunks up and down
+vim.keymap.set("v", "<C-l>", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "<C-k>", ":m '>+1<CR>gv=gv")
+
 -- Smart way to move between panes
 vim.keymap.set( { "n", "v" }, "<C-s-up>", "<C-w><up>", {})
 vim.keymap.set( { "n", "v" }, "<C-s-down>", "<C-w><down>", {})
