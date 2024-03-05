@@ -145,21 +145,6 @@ local plugins = {
       }
   },
 
-  -- FZF
-  {
-    "vijaymarupudi/nvim-fzf",
-    -- optional for icon support
-    dependencies = {
-      { "nvim-tree/nvim-web-devicons" },
-      { "ibhagwan/fzf-lua" },
-      { "vijaymarupudi/nvim-fzf-commands" }
-    },
-    -- config = function()
-    --   -- calling `setup` is optional for customization
-    --   require("fzf-lua").setup({})
-    -- end
-  },
-
   -- Todo comments for Telescope
   {
     "folke/todo-comments.nvim",
@@ -204,7 +189,6 @@ local opts = {}
 
 require("lazy").setup(plugins, opts)
 require("plugins.treesitter")
-require("plugins.fzf")
 require("plugins.lsp-zero")
 require("plugins.mason-lspconfig")
 require("plugins.mason-nvim-dap")
