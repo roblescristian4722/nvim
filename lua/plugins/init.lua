@@ -47,7 +47,8 @@ local plugins = {
       vim.g.VM_maps = {
         ['Find Under'] = "<C-d>",
         ['Find Subword Under'] = '<C-d>',
-        ['Select All'] = '<space>a',
+        ['Select All'] = '<C-a>',
+        ['Visual All'] = '<C-a>',
       }
     end,
   },
