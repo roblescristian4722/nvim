@@ -161,54 +161,70 @@ local plugins = {
     }
   },
 
+  -- Floating command line
+  {
+    'VonHeikemen/fine-cmdline.nvim',
+    dependencies = {
+      'MunifTanjim/nui.nvim'
+    },
+    config = function ()
+      require('fine-cmdline').setup({
+        cmdline = {
+          enable_keymaps = true,
+          smart_history = true,
+          prompt = ': '
+        },
+        popup = {
+          position = {
+            row = '45%',
+            col = '50%',
+          },
+          size = {
+            width = '60%',
+          },
+          border = {
+            style = 'rounded',
+          },
+          win_options = {
+            winhighlight = 'Normal:Normal,FloatBorder:FloatBorder',
+          },
+        }
+      })
+      vim.api.nvim_set_keymap('n', ':', '<cmd>FineCmdline<CR>', {noremap = true})
+    end
+  },
+
   -- DAP (Debugger)
   {
-  "mfussenegger/nvim-dap",
-    lazy = true,
+  "rcarriga/nvim-dap-ui",
     dependencies = {
+      "mfussenegger/nvim-dap",
       "jay-babu/mason-nvim-dap.nvim",
-      config = function()
-      require("mason-nvim-dap").setup({
-        ensure_installed = { "firefox", "node2" }
-      })
-      end,
       "theHamsta/nvim-dap-virtual-text",
-      "rcarriga/nvim-dap-ui",
       "anuvyklack/hydra.nvim",
       "nvim-telescope/telescope-dap.nvim",
       "rcarriga/cmp-dap",
+      "nvim-neotest/nvim-nio",
     },
-    keys = {
-      { "<leader>d", desc = "Open Debug menu" },
-    },
-    cmd = {
-      "DapContinue",
-      "DapLoadLaunchJSON",
-      "DapRestartFrame",
-      "DapSetLogLevel",
-      "DapShowLog",
-      "DapStepInto",
-      "DapStepOut",
-      "DapStepOver",
-      "DapTerminate",
-      "DapToggleBreakpoint",
-      "DapToggleRepl",
-    },
-    config = function()
-      local ok_telescope, telescope = pcall(require, "telescope")
-      if ok_telescope then
-       telescope.load_extension("dap")
-      end
+    config = function ()
+      local dap = require("dap")
+      local dapui = require("dapui")
+      require("mason-nvim-dap").setup({
+        automatic_setup = true,
+        ensure_installed = {
+          "cpptools",
+          "codelldb"
+        },
+      })
 
-      local ok_cmp, cmp = pcall(require, "cmp")
-      if ok_cmp then
-        cmp.setup.filetype({ "dap-repl", "dapui_watches" }, {
-          sources = cmp.config.sources({
-            { name = "dap" },
-          }, {
-            { name = "buffer" },
-          }),
-        })
+      dap.listeners.after.event_initialized['dapui_config'] = function()
+        dapui.open()
+      end
+      dap.listeners.before.event_terminated['dapui_config'] = function()
+        dapui.close()
+      end
+      dap.listeners.before.event_exited['dapui_config'] = function()
+        dapui.close()
       end
     end
   },
@@ -242,4 +258,3 @@ require("plugins.bufferline")
 require("plugins.telescope")
 require("plugins.notify")
 require("plugins.dap")
-require("plugins.mason-nvim-dap")
