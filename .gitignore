@@ -22,7 +22,7 @@ plugin/jdt/latest/config_ss_win/*
 plugin/jdt/latest/config_win/*
 !plugin/jdt/latest/config_win/config.ini
 
-
+# JDT LS Version 1.19.0-202301090450
 plugin/jdt/jdt-language-server-1.19.0-202301090450/config_linux/*
 !plugin/jdt/jdt-language-server-1.19.0-202301090450/config_linux/config.ini
 
@@ -41,5 +41,26 @@ plugin/jdt/jdt-language-server-1.19.0-202301090450/config_ss_win/*
 plugin/jdt/jdt-language-server-1.19.0-202301090450/config_win/*
 !plugin/jdt/jdt-language-server-1.19.0-202301090450/config_win/config.ini
 
-
 plugin/jdt/jdt-language-server-1.19.0-202301090450/plugins/.nfs*
+
+# JDT LS Version 1.9.0-202203031534
+plugin/jdt/jdt-language-server-1.9.0-202203031534/config_linux/*
+!plugin/jdt/jdt-language-server-1.9.0-202203031534/config_linux/config.ini
+
+plugin/jdt/jdt-language-server-1.9.0-202203031534/config_mac/*
+!plugin/jdt/jdt-language-server-1.9.0-202203031534/config_mac/config.ini
+
+plugin/jdt/jdt-language-server-1.9.0-202203031534/config_ss_linux/*
+!plugin/jdt/jdt-language-server-1.9.0-202203031534/config_ss_linux/config.ini
+
+plugin/jdt/jdt-language-server-1.9.0-202203031534/config_ss_mac/*
+!plugin/jdt/jdt-language-server-1.9.0-202203031534/config_ss_mac/config.ini
+
+plugin/jdt/jdt-language-server-1.9.0-202203031534/config_ss_win/*
+!plugin/jdt/jdt-language-server-1.9.0-202203031534/config_ss_win/config.ini
+
+plugin/jdt/jdt-language-server-1.9.0-202203031534/config_win/*
+!plugin/jdt/jdt-language-server-1.9.0-202203031534/config_win/config.ini
+
+plugin/jdt/jdt-language-server-1.9.0-202203031534/plugins/.nfs*
+

@@ -53,14 +53,8 @@ local plugins = {
     end,
   },
 
-  -- Pretty error list
-  "folke/trouble.nvim",
-   dependencies = { "nvim-tree/nvim-web-devicons" },
-   opts = {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
-   },
+  -- Formatter
+  'mhartington/formatter.nvim',
 
   -- Auto pairs for tags
   'alvan/vim-closetag',
@@ -195,50 +189,50 @@ local plugins = {
   },
 
   -- DAP (Debugger)
-  {
-  "rcarriga/nvim-dap-ui",
-    dependencies = {
-      "mfussenegger/nvim-dap",
-      "theHamsta/nvim-dap-virtual-text",
-      "anuvyklack/hydra.nvim",
-      "nvim-telescope/telescope-dap.nvim",
-      "rcarriga/cmp-dap",
-      "nvim-neotest/nvim-nio",
-    },
-    config = function ()
-      local dap = require("dap")
-      local dapui = require("dapui")
-      dap.listeners.before.attach.dapui_config = function()
-        dapui.open()
-      end
-      dap.listeners.before.launch.dapui_config = function()
-        dapui.open()
-      end
-      dap.listeners.before.event_terminated.dapui_config = function()
-        dapui.close()
-      end
-      dap.listeners.before.event_exited.dapui_config = function()
-        dapui.close()
-      end
-    end
-  },
+  -- {
+  -- "rcarriga/nvim-dap-ui",
+   --  dependencies = {
+      -- "mfussenegger/nvim-dap",
+      -- "theHamsta/nvim-dap-virtual-text",
+      -- "anuvyklack/hydra.nvim",
+      -- "nvim-telescope/telescope-dap.nvim",
+      -- "rcarriga/cmp-dap",
+      -- "nvim-neotest/nvim-nio",
+    -- },
+    -- config = function ()
+      -- local dap = require("dap")
+      -- local dapui = require("dapui")
+      -- dap.listeners.before.attach.dapui_config = function()
+        -- dapui.open()
+      -- end
+      -- dap.listeners.before.launch.dapui_config = function()
+        -- dapui.open()
+      -- end
+      -- dap.listeners.before.event_terminated.dapui_config = function()
+        -- dapui.close()
+      -- end
+      -- dap.listeners.before.event_exited.dapui_config = function()
+        -- dapui.close()
+      -- end
+    -- end
+  -- },
 
   -- Mason DAP
-  {
-    "jay-babu/mason-nvim-dap.nvim",
-    event = "VeryLazy",
-    dependencies = {
-      "mfussenegger/nvim-dap",
-      'williamboman/mason.nvim',
-    },
-    opts = {
-      handlers = {},
-      ensure_installed = {
-        "cpptools",
-        "codelldb"
-      }
-    }
-  },
+  -- {
+    -- "jay-babu/mason-nvim-dap.nvim",
+    -- event = "VeryLazy",
+    -- dependencies = {
+      -- "mfussenegger/nvim-dap",
+      -- 'williamboman/mason.nvim',
+    -- },
+    -- opts = {
+      -- handlers = {},
+      -- ensure_installed = {
+        -- "cpptools",
+        -- "codelldb"
+      -- }
+    -- }
+  -- },
 
   -- Custom notifications
   'rcarriga/nvim-notify',
@@ -260,7 +254,6 @@ require("plugins.treesitter")
 require("plugins.lsp-zero")
 require("plugins.mason-lspconfig")
 require("plugins.lspsaga")
-require("plugins.trouble")
 require("plugins.nvimtree")
 require("plugins.indent-blankline")
 require("plugins.lualine")
@@ -268,4 +261,5 @@ require("plugins.gitsigns")
 require("plugins.bufferline")
 require("plugins.telescope")
 require("plugins.notify")
-require("plugins.dap")
+require("plugins.format")
+-- require("plugins.dap")
