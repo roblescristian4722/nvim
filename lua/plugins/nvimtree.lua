@@ -25,9 +25,10 @@ require("nvim-tree").setup({
   renderer = {
     group_empty = true,
   },
-  -- filters = {
-  --   dotfiles = true,
-  -- },
+  filters = {
+    dotfiles = true,
+    custom = { '.ade_path', 'target', '*.class' },
+  },
   on_attach = my_on_attach,
   update_focused_file= {
     enable = true,
