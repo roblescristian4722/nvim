@@ -28,7 +28,8 @@ local saga = require('lspsaga').setup({
   outline = {
     keys = {
       toggle_or_jump = '<CR>',
-      quit = '<Esc>'
+      quit = '<Esc>',
+      jump = 'j',
     }
   },
   rename = {

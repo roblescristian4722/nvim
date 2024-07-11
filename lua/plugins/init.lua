@@ -62,7 +62,7 @@ local plugins = {
   -- Comments usgin "gc" command
   'tpope/vim-commentary',
 
-  -- Moving splitted windows
+  -- Moving split windows
   'wesQ3/vim-windowswap',
 
   -- Surround
@@ -103,6 +103,16 @@ local plugins = {
       { 'hrsh7th/cmp-nvim-lsp-signature-help' },
     }
   },
+
+  -- Linting
+  {
+    'mfussenegger/nvim-lint',
+    event = {
+      "BufReadPre",
+      "BufNewFile",
+    },
+  },
+
 
   -- List available snippets using Telescope
   {
@@ -262,4 +272,5 @@ require("plugins.bufferline")
 require("plugins.telescope")
 require("plugins.notify")
 require("plugins.format")
+require("plugins.nvim-lint")
 -- require("plugins.dap")

@@ -79,14 +79,13 @@ local function get_jdtls_paths()
     -- you can find the list here: 
     -- https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
     --
-    -- This example assume you are using sdkman: https://sdkman.io
     {
       name = 'JavaSE-17',
       path = '/usr/java/jdk-17.0.5',
     },
     {
       name = 'JavaSE-11',
-      path = '/usr/lib/jvm/java-11-openjdk-11.0.22.0.7-2.0.1.el8.x86_64/'
+      path = '/usr/java/jdk-11.0.17'
     },
     -- {
     --   name = 'JavaSE-18',

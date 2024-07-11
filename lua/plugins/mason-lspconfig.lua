@@ -38,7 +38,7 @@ require('mason-lspconfig').setup({
     -- "kotlin_language_server",
     "lua_ls",
     -- "perlnavigator",
-    -- "pyright",
+    "pyright",
     -- "pylsp",
     "sqlls",
     -- "rust_analyzer",
