@@ -9,6 +9,15 @@ lsp_defaults.capabilities = vim.tbl_deep_extend(
 
 lspconfig.lua_ls.setup({})
 
+-- Fixes "multiple different client" error caused by clangd
+lspconfig.clangd.setup {
+  on_attach = on_attach,
+  cmd = {
+    "clangd",
+    "--offset-encoding=utf-16",
+  },
+}
+
 require('mason').setup({
   ui = {
     icons = {

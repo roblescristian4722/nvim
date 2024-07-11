@@ -21,9 +21,6 @@ lsp.setup({
   }
 })
 
--- LSP Typos
-require'lspconfig'.typos_lsp.setup{}
-
 cmp.setup({
   sources = {
     { name = 'nvim_lsp' },
