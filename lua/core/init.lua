@@ -1,7 +1,1 @@
-require("core.g")
-require("core.cmd")
-require("core.opt")
 require("core.keymaps")
-require("core.functions")
-require("core.neovide")
-require("core.neoray")
