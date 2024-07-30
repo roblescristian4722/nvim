@@ -1,4 +1,3 @@
-if vim.g.vscode then
-    require("core")
-    vim.cmd.colorscheme = ""
-end
+require("core")
+require("plugins")
+vim.cmd.colorscheme = ""
