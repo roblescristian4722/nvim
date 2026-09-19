@@ -18,10 +18,16 @@ local plugins = {
 
   -- Treesitter
   {
-    'nvim-treesitter/nvim-treesitter',
-    build = ':TSUpdate'
+      "nvim-treesitter/nvim-treesitter",
+      build = ":TSUpdate",
+      config = function()
+          local configs = require("nvim-treesitter.configs")
+          configs.setup({
+              ensure_installed = { "c", "lua", "vim", "vimdoc", "query" },
+              highlight = { enable = true },
+          })
+      end
   },
-
   -- indent-blankline
   {
     "lukas-reineke/indent-blankline.nvim",
@@ -260,7 +266,6 @@ local plugins = {
 local opts = {}
 
 require("lazy").setup(plugins, opts)
-require("plugins.treesitter")
 require("plugins.lsp-zero")
 require("plugins.mason-lspconfig")
 require("plugins.lspsaga")

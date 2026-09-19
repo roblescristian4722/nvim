@@ -1,23 +1,4 @@
-local lspconfig = require('lspconfig')
-local lsp_defaults = lspconfig.util.default_config
-
-lsp_defaults.capabilities = vim.tbl_deep_extend(
-  'force',
-  lsp_defaults.capabilities,
-  require('cmp_nvim_lsp').default_capabilities()
-)
-
-lspconfig.lua_ls.setup({})
-
--- Fixes "multiple different client" error caused by clangd
-lspconfig.clangd.setup {
-  on_attach = on_attach,
-  cmd = {
-    "clangd",
-    "--offset-encoding=utf-16",
-  },
-}
-
+-- 1. Setup Mason first
 require('mason').setup({
   ui = {
     icons = {
@@ -27,39 +8,49 @@ require('mason').setup({
     }
   }
 })
+
+-- 2. Define autocompletion capabilities
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+-- 3. Setup Mason-LSPConfig and configure servers via handlers
 require('mason-lspconfig').setup({
   ensure_installed = {
-    -- "bashls",
-    -- "pkgbuild_language_server",
     "clangd",
-    -- "omnisharp_mono",
     "cmake",
     "eslint",
-    -- "golangci_lint_ls",
-    -- "gopls",
-    -- "graphql",
-    -- "groovyls",
-    -- "html",
     "jsonls",
     "jdtls",
-    -- "tsserver",
     "vtsls",
-    -- "kotlin_language_server",
     "lua_ls",
-    -- "perlnavigator",
     "pyright",
-    -- "pylsp",
     "sqlls",
-    -- "rust_analyzer",
-    -- "lemminx",
     "yamlls"
   },
-  automatic_installation = true
+  automatic_installation = true,
+  
+  -- Handlers automatically set up every server installed by Mason
+  handlers = {
+    -- Default handler for all servers (replaces manual lua_ls setup)
+    function(server_name)
+      require('lspconfig')[server_name].setup({
+        capabilities = capabilities,
+      })
+    end,
+    
+    -- Dedicated handler for clangd to apply your specific fixes
+    clangd = function()
+      require('lspconfig').clangd.setup({
+        capabilities = capabilities,
+        cmd = {
+          "clangd",
+          "--offset-encoding=utf-16",
+        },
+      })
+    end,
+  }
 })
 
--- Local LSP server installations
-
--- bash
+-- 4. Local LSP server installations (unmanaged by Mason)
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'sh',
   callback = function()
